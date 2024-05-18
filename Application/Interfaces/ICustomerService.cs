@@ -1,4 +1,5 @@
-﻿using Domain.Entities;
+﻿using Application.Models;
+using Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,8 @@ namespace Application.Interfaces
 {
     public interface ICustomerService
     {
-        List<Customer> GetAllCustomer();
+        IEnumerable<Customer> GetAllCustomer();
+
+        public int AddUser(CustomerDto customerDto);
     }
 }

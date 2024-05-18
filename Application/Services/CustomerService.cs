@@ -12,16 +12,28 @@ namespace Application.Services
 {
     public class CustomerService : ICustomerService
     {
-        public readonly ICustomerRepository _customerRepository;
+        private readonly ICustomerRepository _customerRepository;
 
         public CustomerService(ICustomerRepository customerRepository)
         {
             _customerRepository = customerRepository;
         }
 
-        public List<Customer> GetAllCustomer()
+        public IEnumerable<Customer> GetAllCustomer()
         {
             return _customerRepository.GetAll();
+        }
+
+        public int AddUser(CustomerDto customer)
+        {
+            Customer newCustomer = new Customer()
+                {
+                    Name = customer.Name,
+                    Password = customer.Password,
+                    Email = customer.Email,
+                    RegisterDate = customer.RegisterDate
+            };
+            return _customerRepository.AddUser(newCustomer);
         }
     }
 }

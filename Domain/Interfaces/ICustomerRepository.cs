@@ -10,5 +10,6 @@ namespace Domain.Interfaces
     public interface ICustomerRepository
     {
         List<Customer> GetAll();
+        public int AddUser(int id);
     }
 }

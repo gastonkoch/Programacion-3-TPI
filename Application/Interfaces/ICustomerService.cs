@@ -1,4 +1,5 @@
 ﻿using Application.Models;
+using Application.Models.Requests;
 using Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -10,8 +11,12 @@ namespace Application.Interfaces
 {
     public interface ICustomerService
     {
-        IEnumerable<Customer> GetAllCustomer();
+        ICollection<Customer> GetAllCustomer(); //GetAll
+        Customer GetCustomerById(int id); 
+        void Delete(int id);
+        void Update(int id, CustomerDto customer);
+        Customer Create(CustomerDto customer); // Add
 
-        public int AddUser(CustomerDto customerDto);
+        //Customer ChangePassword(int id,CustomerChangePassword customerNewPassword);
     }
 }

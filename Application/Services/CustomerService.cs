@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Application.Services
 {
-    public class CustomerService : ICustomerService
+    public class CustomerService : ICustomerService 
     {
         private readonly ICustomerRepository _customerRepository;
 
@@ -19,21 +19,34 @@ namespace Application.Services
             _customerRepository = customerRepository;
         }
 
-        public IEnumerable<Customer> GetAllCustomer()
+        public ICollection<Customer> GetAllCustomer()
         {
             return _customerRepository.GetAll();
         }
 
-        public int AddUser(CustomerDto customer)
+        public Customer GetCustomerById(int id) 
+        { 
+            return _customerRepository.GetCustomerById(id);
+        }
+
+        public void Delete(int id)
         {
-            Customer newCustomer = new Customer()
-                {
-                    Name = customer.Name,
-                    Password = customer.Password,
-                    Email = customer.Email,
-                    RegisterDate = customer.RegisterDate
-            };
-            return _customerRepository.AddUser(newCustomer);
+            var objectDelete = _customerRepository.GetCustomerById(id); // Utilizamos el metodo de get por id para obtener el obj que el usuario desea eliminar
+            _customerRepository.Delete(objectDelete);
+        }
+
+        public void Update(int id,CustomerDto customer) 
+        {
+            var objectUpdate = _customerRepository.GetCustomerById(id);
+            objectUpdate.Name = customer.Name;
+            _customerRepository.Update(objectUpdate);
+        }
+
+        public Customer Create(CustomerDto customer)
+        {
+            var objectNew = new Customer(customer.Id, customer.Name, customer.Password, customer.Email, customer.RegisterDate);
+            _customerRepository.Add(objectNew);
+            return _customerRepository.GetCustomerById(customer.Id); // Esto no tendria sentido cuando tengamos Base da datos por que el id no llegaria por parametro
         }
     }
 }

@@ -9,7 +9,10 @@ namespace Domain.Interfaces
 {
     public interface ICustomerRepository
     {
-        List<Customer> GetAll();
-        public int AddUser(int id);
+        ICollection<Customer> GetAll();
+        Customer GetCustomerById(int id);
+        Customer Add(Customer customer); // Create
+        void Delete(Customer customer);
+        void Update(Customer customer);
     }
 }

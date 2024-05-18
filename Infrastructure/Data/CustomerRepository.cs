@@ -12,7 +12,7 @@ namespace Infrastructure.Data
 {
     public class CustomerRepository : ICustomerRepository
     {
-        public List<Customer> GetAll()
+        public ICollection<Customer> GetAll()
         {
             return null;
         }

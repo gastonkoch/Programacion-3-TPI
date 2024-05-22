@@ -16,5 +16,25 @@ namespace Infrastructure.Data
         {
             return null;
         }
+
+        public Customer GetCustomerById(int id)
+        {
+            return null;
+        }
+        public Customer Add(Customer customer) 
+        {
+            return null;
+        }
+
+        public void Delete(Customer customer)
+        {
+            
+        }
+
+        public void Update(Customer customer)
+        {
+            
+        }
+
     }
 }

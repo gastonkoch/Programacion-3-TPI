@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Services
+namespace Domain.Enum
 {
-    internal class SellerService
+    public enum UserType
     {
+        Customer,
+        Seller
     }
 }

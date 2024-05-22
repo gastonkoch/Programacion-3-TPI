@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Application.Models.Requests
 {
-    public class CustomerCreate
+    public class OrderCheckOut
     {
     }
 }

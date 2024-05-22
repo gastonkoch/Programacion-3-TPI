@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace Application.Models.Requests
 {
-    public class CustomerChangePassword
+    public class OrderFinish
     {
-        public string Password { get; set; }
     }
 }

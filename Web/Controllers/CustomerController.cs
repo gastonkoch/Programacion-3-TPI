@@ -17,7 +17,7 @@ namespace Web.Controllers
             _customerService = customerService;
         }
 
-        [HttpGet("/GetAllCustomer")]
+        [HttpGet]
         public ActionResult<ICollection<Customer>> GetAllCustomer()
         {
             try
@@ -25,35 +25,36 @@ namespace Web.Controllers
                 return Ok(_customerService.GetAllCustomer());
             } catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return NotFound(ex.Message);
             }
         }
 
-        [HttpGet("/GetElementById")]
-        public ActionResult<Customer> GetCustomerById(int id)
+        [HttpGet("{id}")]
+        public ActionResult<Customer> GetCustomerById([FromRoute] int id)
         {
             try
             {
                 return Ok(GetCustomerById(id));
             }catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return NotFound(ex.Message);
             }
         }
 
-        [HttpPut("/Update")]
-        public void Update(int id, CustomerDto customer)
+        [HttpPut("{id}")]
+        public void Update([FromRoute] int id,[FromBody] CustomerDto customer)
         {
             _customerService.Update(id, customer);  
         }
 
-        [HttpDelete("/Delete")]
-        public void Delete(int id)
+        [HttpDelete("{id}")]
+        public void Delete([FromRoute] int id)
         {
             _customerService.Delete(id);
         }
-        [HttpPost("/Create")]
-        public ActionResult<Customer> Create(CustomerDto customer)
+
+        [HttpPost]
+        public ActionResult<Customer> Create([FromBody] CustomerDto customer)
         {
             _customerService.Create(customer);
 
@@ -62,7 +63,7 @@ namespace Web.Controllers
                 return Ok(_customerService.GetCustomerById(customer.Id));
             } catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return NotFound(ex.Message);
             }
         }
     }

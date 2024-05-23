@@ -14,16 +14,17 @@ namespace Application.Services
     {
         private readonly IOrderRepository _orderRepository;
         private readonly IUserRepository _userRepository;
-
+        private readonly IProductRepository _productRepository;
         //public OrderService(IOrderRepository orderRepository)
         //{
         //    _orderRepository = orderRepository;
         //}
 
-        public OrderService(IOrderRepository orderRepository, IUserRepository userRepository = null)
+        public OrderService(IOrderRepository orderRepository, IUserRepository userRepository = null, IProductRepository productRepository = null)
         {
             _orderRepository = orderRepository;
             _userRepository = userRepository;
+            _productRepository = productRepository;
         }
 
         public ICollection<Order> GetAll()
@@ -53,6 +54,15 @@ namespace Application.Services
         {
             var customer = _userRepository.GetUserById(order.CustomerId);
             var seller = _userRepository.GetUserById(order.SellerId);
+            //var product = _productRepository.GetProductById(order.ProductId);
+            foreach (var productId in order.ProductsIds)
+            {
+                var product = _productRepository.GetProductById(productId);
+                if (product != null)
+                {
+                    
+                }
+            }
 
             var newOrder = new Order() 
             {
@@ -63,11 +73,21 @@ namespace Application.Services
                 Customer = customer,
                 Seller = seller
             };
+
+            foreach (var productId in order.ProductsIds)
+            {
+                var product = _productRepository.GetProductById(productId);
+                if (product != null)
+                {
+                    newOrder.Products.Add(product);
+                }
+            }
+
+            newOrder.AmountProducts = newOrder.Products.Count;
+
+
             _orderRepository.AddOrder(newOrder);
             return _orderRepository.GetOrderById(order.Id);
-        }
-
-        
-
+        }        
     }
 }

@@ -12,6 +12,10 @@ namespace Application.Models
     {
         public int Id { get; set; }
         public int AmountProducts { get; set; }
+        //public IEnumerable<Product> Products { get; set; }
+        //public int ProductId { get; set; }
+        public List<int> ProductsIds { get; set; }
+        
         public PaymentMethod PaymentMethod { get; set; }
         public StatusOrder StatusOrder { get; set; }  
         public int CustomerId { get; set; }

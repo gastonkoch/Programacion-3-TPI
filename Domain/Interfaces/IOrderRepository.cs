@@ -15,7 +15,7 @@ namespace Domain.Interfaces
         //Order AddOrderProduct(Product product);
         void DeleteOrder(Order order);
         void UpdateOrder(Order order);
-        int CheckStock(Order order);
+        int CheckStock(Product product);
         bool FinishOrder(Order order);
     }
 }

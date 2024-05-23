@@ -34,7 +34,7 @@ namespace Infrastructure.Data
         {
 
         }
-        public int CheckStock(int id)
+        public int CheckStock(Product product)
         {
             return 0;
         }

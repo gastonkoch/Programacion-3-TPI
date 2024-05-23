@@ -12,13 +12,19 @@ namespace Domain.Entities
     public class Order
     {
         public int Id { get; set; }
+        
         [Column(TypeName = "int(4.0)")]
-        public int AmountProducts { get; set; } = 0;
-        public IEnumerable<Product> Products { get; set; }
+        public int AmountProducts { get; set; } = 0;// ver como hacer para que el amoute se calcule segun la cantidad de elementos que tenga product
+        
+        public IEnumerable<Product> Products { get; set; } = new List<Product>();
+
         public PaymentMethod PaymentMethod { get; set; }
+        
         public StatusOrder StatusOrder { get; set; } = StatusOrder.InProgress;
+        
         [Required]
         public User Customer { get; set; } // Revisar si conviene usar el id o el objeto
+        
         [Required]
         public User Seller { get; set; } // Revisar si conviene usar el id o el objeto
 

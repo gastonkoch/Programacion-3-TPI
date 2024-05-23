@@ -13,8 +13,15 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<ICustomerRepository,CustomerRepository>(); // Siempre que el objeto tenga una interfaz hay que aplicarlo aca
-builder.Services.AddScoped<ICustomerService,CustomerService>();
+#region Repositories
+builder.Services.AddSingleton<IUserRepository, UserRepository>();
+builder.Services.AddSingleton<IOrderRepository, OrderRepository>();
+#endregion
+
+#region Services
+builder.Services.AddScoped<IUserService, UserService>();
+#endregion
+
 
 var app = builder.Build();
 

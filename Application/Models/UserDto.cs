@@ -19,8 +19,5 @@ namespace Application.Models
         public string RegisterDate { get; set; }
         public UserType UserType { get; set; }
 
-
-        public UserDto(int id,) { }
-
     }
 }

@@ -16,7 +16,7 @@ namespace Domain.Entities
         [Column(TypeName = "int(4.0)")]
         public int AmountProducts { get; set; } = 0;// ver como hacer para que el amoute se calcule segun la cantidad de elementos que tenga product
         
-        public IEnumerable<Product> Products { get; set; } = new List<Product>();
+        public IEnumerable<Product> Products { get; set; }
 
         public PaymentMethod PaymentMethod { get; set; }
         

@@ -55,14 +55,14 @@ namespace Application.Services
             var customer = _userRepository.GetUserById(order.CustomerId);
             var seller = _userRepository.GetUserById(order.SellerId);
             //var product = _productRepository.GetProductById(order.ProductId);
-            foreach (var productId in order.ProductsIds)
-            {
-                var product = _productRepository.GetProductById(productId);
-                if (product != null)
-                {
+            //foreach (var productId in order.ProductsIds)
+            //{
+            //    var product = _productRepository.GetProductById(productId);
+            //    if (product != null)
+            //    {
                     
-                }
-            }
+            //    }
+            //}
 
             var newOrder = new Order() 
             {
@@ -74,16 +74,16 @@ namespace Application.Services
                 Seller = seller
             };
 
-            foreach (var productId in order.ProductsIds)
-            {
-                var product = _productRepository.GetProductById(productId);
-                if (product != null)
-                {
-                    newOrder.Products.Add(product);
-                }
-            }
+            //foreach (var productId in order.ProductsIds)
+            //{
+            //    var product = _productRepository.GetProductById(productId);
+            //    if (product != null)
+            //    {
+            //        newOrder.Products.Add(product);
+            //    }
+            //}
 
-            newOrder.AmountProducts = newOrder.Products.Count;
+           // newOrder.AmountProducts = newOrder.Products.Count;
 
 
             _orderRepository.AddOrder(newOrder);

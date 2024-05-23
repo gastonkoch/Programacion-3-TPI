@@ -18,7 +18,7 @@ namespace Application.Interfaces
         //Order AddOrderProduct(Product product);
         void DeleteOrder(int id);
         void UpdateOrder(int id, OrderDto order);
-        int CheckStock(int OrderId,int ProductId);
+        //int CheckStock(int OrderId,int ProductId);
         //bool FinishOrder(int id);
     }
 }

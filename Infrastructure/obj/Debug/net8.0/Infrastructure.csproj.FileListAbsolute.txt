@@ -34,3 +34,5 @@ C:\SourceCode\TP-PROG3\Programacion-3-TPI\Infrastructure\bin\Debug\net8.0\Applic
 C:\SourceCode\TP-PROG3\Programacion-3-TPI\Infrastructure\bin\Debug\net8.0\Domain.pdb
 C:\SourceCode\TP-PROG3\Programacion-3-TPI\Infrastructure\obj\Debug\net8.0\Infrastr.15EFFBFE.Up2Date
 C:\SourceCode\TP-PROG3\Programacion-3-TPI\Infrastructure\obj\Debug\net8.0\ref\Infrastructure.dll
+C:\Users\GasTon\Desktop\Programacion 3 TPI\Programacion 3 TPI\Infrastructure\bin\Debug\net8.0\Infrastructure.runtimeconfig.json
+C:\Users\GasTon\Desktop\Programacion 3 TPI\Programacion 3 TPI\Infrastructure\obj\Debug\net8.0\Infrastructure.genruntimeconfig.cache

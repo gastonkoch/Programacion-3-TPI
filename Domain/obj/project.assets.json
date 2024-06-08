@@ -1,26 +1,54 @@
 {
   "version": 3,
   "targets": {
-    "net8.0": {}
+    "net8.0": {
+      "ServiceStack.Interfaces/8.2.2": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/ServiceStack.Interfaces.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/ServiceStack.Interfaces.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "ServiceStack.Interfaces/8.2.2": {
+      "sha512": "KpQT8tH+d2dPksdGhuLdmBySsd8c8XInSsh6sgdZ/E74PBn/Yay4HBveWXfhiIN7asSXV32IjBw6FvHtWAtv0A==",
+      "type": "package",
+      "path": "servicestack.interfaces/8.2.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net472/ServiceStack.Interfaces.dll",
+        "lib/net6.0/ServiceStack.Interfaces.dll",
+        "lib/net8.0/ServiceStack.Interfaces.dll",
+        "lib/netstandard2.0/ServiceStack.Interfaces.dll",
+        "servicestack.interfaces.8.2.2.nupkg.sha512",
+        "servicestack.interfaces.nuspec"
+      ]
+    }
+  },
   "projectFileDependencyGroups": {
-    "net8.0": []
+    "net8.0": [
+      "ServiceStack.Interfaces >= 8.2.2"
+    ]
   },
   "packageFolders": {
-    "C:\\Users\\alerc\\.nuget\\packages\\": {}
+    "C:\\Users\\GasTon\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\SourceCode\\TP-PROG3\\Programacion-3-TPI\\Domain\\Domain.csproj",
+      "projectUniqueName": "C:\\Users\\GasTon\\Desktop\\Programacion 3 TPI\\Programacion 3 TPI\\Domain\\Domain.csproj",
       "projectName": "Domain",
-      "projectPath": "C:\\SourceCode\\TP-PROG3\\Programacion-3-TPI\\Domain\\Domain.csproj",
-      "packagesPath": "C:\\Users\\alerc\\.nuget\\packages\\",
-      "outputPath": "C:\\SourceCode\\TP-PROG3\\Programacion-3-TPI\\Domain\\obj\\",
+      "projectPath": "C:\\Users\\GasTon\\Desktop\\Programacion 3 TPI\\Programacion 3 TPI\\Domain\\Domain.csproj",
+      "packagesPath": "C:\\Users\\GasTon\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\GasTon\\Desktop\\Programacion 3 TPI\\Programacion 3 TPI\\Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\alerc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\GasTon\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -50,6 +78,12 @@
     "frameworks": {
       "net8.0": {
         "targetAlias": "net8.0",
+        "dependencies": {
+          "ServiceStack.Interfaces": {
+            "target": "Package",
+            "version": "[8.2.2, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",
@@ -66,7 +100,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

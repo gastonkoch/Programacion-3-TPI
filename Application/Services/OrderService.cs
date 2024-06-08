@@ -13,17 +13,16 @@ namespace Application.Services
     public class OrderService : IOrderService
     {
         private readonly IOrderRepository _orderRepository;
-        private readonly IUserRepository _userRepository;
+        //private readonly IUserRepository _userRepository;
         private readonly IProductRepository _productRepository;
         //public OrderService(IOrderRepository orderRepository)
         //{
         //    _orderRepository = orderRepository;
         //}
 
-        public OrderService(IOrderRepository orderRepository, IUserRepository userRepository = null, IProductRepository productRepository = null)
+        public OrderService(IOrderRepository orderRepository, IProductRepository productRepository = null)
         {
             _orderRepository = orderRepository;
-            _userRepository = userRepository;
             _productRepository = productRepository;
         }
 
@@ -52,38 +51,27 @@ namespace Application.Services
 
         public Order CreateOrder(OrderDto order)
         {
-            var customer = _userRepository.GetUserById(order.CustomerId);
-            var seller = _userRepository.GetUserById(order.SellerId);
-            //var product = _productRepository.GetProductById(order.ProductId);
-            //foreach (var productId in order.ProductsIds)
-            //{
-            //    var product = _productRepository.GetProductById(productId);
-            //    if (product != null)
-            //    {
-                    
-            //    }
-            //}
 
             var newOrder = new Order() 
             {
                 Id = order.Id, // borrar
-                AmountProducts = order.AmountProducts,
+                //AmountProducts = order.AmountProducts,
                 PaymentMethod = order.PaymentMethod,
                 StatusOrder = order.StatusOrder,
-                Customer = customer,
-                Seller = seller
+                //Customer = customer,
+                //Seller = seller
             };
 
-            //foreach (var productId in order.ProductsIds)
-            //{
-            //    var product = _productRepository.GetProductById(productId);
-            //    if (product != null)
-            //    {
-            //        newOrder.Products.Add(product);
-            //    }
-            //}
+           foreach (var productId in order.ProductsIds)
+           {
+               var product = _productRepository.GetProductById(productId);
+               if (product != null)
+               {
+                   //newOrder.Products.Add(product);
+               }
+           }
 
-           // newOrder.AmountProducts = newOrder.Products.Count;
+           //newOrder.AmountProducts = newOrder.Products.Count;
 
 
             _orderRepository.AddOrder(newOrder);

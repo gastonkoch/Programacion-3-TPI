@@ -46,53 +46,54 @@ namespace Infrastructure.Data
 
         private User[] CreateCustomerSellerDataSeed()
         {
-            User[] result;
-            result = [
-               new User
-                {
-                    Id = 1,
-                    Name = "Gaston",
-                    Password = "1",
-                    Email = "gaston@gmail.com",
-                    RegisterDate = "06/06/2024",
-                    UserType = Domain.Enum.UserType.Seller
-                },
-                new User
-                {
-                    Id = 2,
-                    Name = "Maria",
-                    Password = "2",
-                    Email = "maria@gmail.com",
-                    RegisterDate = "05/04/2024",
-                    UserType = Domain.Enum.UserType.Customer
-                },
-                new User
-                {
-                    Id = 3,
-                    Name = "Juan",
-                    Password = "3",
-                    Email = "juan@gmail.com",
-                    RegisterDate = "01/02/2024",
-                    UserType = Domain.Enum.UserType.Seller
-                },
-                new User
-                {
-                    Id = 4,
-                    Name = "Ana",
-                    Password = "4",
-                    Email = "ana@gmail.com",
-                    RegisterDate = "10/05/2024",
-                    UserType = Domain.Enum.UserType.Customer
-                },
-                new User
-                {
-                    Id = 5,
-                    Name = "Luis",
-                    Password = "5",
-                    Email = "luis@gmail.com",
-                    RegisterDate = "15/03/2024",
-                    UserType = Domain.Enum.UserType.Seller
-                }];
+            User[] result = new User[]
+            {
+        new User
+        {
+            Id = 1,
+            Name = "Gaston",
+            Password = "1",
+            Email = "gaston@gmail.com",
+            RegisterDate = DateTime.Parse("06/06/2024"),
+            UserType = Domain.Enum.UserType.Seller
+        },
+        new User
+        {
+            Id = 2,
+            Name = "Maria",
+            Password = "2",
+            Email = "maria@gmail.com",
+            RegisterDate = DateTime.Parse("05/04/2024"),
+            UserType = Domain.Enum.UserType.Customer
+        },
+        new User
+        {
+            Id = 3,
+            Name = "Juan",
+            Password = "3",
+            Email = "juan@gmail.com",
+            RegisterDate = DateTime.Parse("01/02/2024"),
+            UserType = Domain.Enum.UserType.Seller
+        },
+        new User
+        {
+            Id = 4,
+            Name = "Ana",
+            Password = "4",
+            Email = "ana@gmail.com",
+            RegisterDate = DateTime.Parse("10/05/2024"),
+            UserType = Domain.Enum.UserType.Customer
+        },
+        new User
+        {
+            Id = 5,
+            Name = "Luis",
+            Password = "5",
+            Email = "luis@gmail.com",
+            RegisterDate = DateTime.Parse("15/03/2024"),
+            UserType = Domain.Enum.UserType.Seller
+        }
+            };
 
             return result;
         }

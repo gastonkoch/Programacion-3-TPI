@@ -1,5 +1,6 @@
 ﻿using Application.Interfaces;
 using Application.Models;
+using Application.Models.Requests;
 using Domain.Entities;
 using Domain.Interfaces;
 using System;
@@ -13,69 +14,82 @@ namespace Application.Services
     public class OrderService : IOrderService
     {
         private readonly IOrderRepository _orderRepository;
-        //private readonly IUserRepository _userRepository;
-        private readonly IProductRepository _productRepository;
-        //public OrderService(IOrderRepository orderRepository)
-        //{
-        //    _orderRepository = orderRepository;
-        //}
 
-        public OrderService(IOrderRepository orderRepository, IProductRepository productRepository = null)
+        public OrderService(IOrderRepository orderRepository)
         {
             _orderRepository = orderRepository;
-            _productRepository = productRepository;
         }
 
-        public ICollection<Order> GetAll()
+        public OrderDto GetOrderById(int id)
         {
-            return _orderRepository.GetAll();
-        }
-        
-        public Order GetOrderById(int id)
-        {
-            return _orderRepository.GetOrderById(id);
+            OrderDto orderDto = OrderDto.ToDto(_orderRepository.GetByIdAsync(id).Result ?? throw new Exception("No se encontro la orden"));
+            return orderDto;
         }
 
-        public void DeleteOrder(int id)
+        public OrderDto CreateOrder(OrderCreateRequest dto)
         {
-            var orderDelete = _orderRepository.GetOrderById(id);
-            _orderRepository.DeleteOrder(orderDelete);
+            return OrderDto.ToDto(_orderRepository.AddAsync(OrderCreateRequest.ToEntity(dto)).Result);
+
         }
 
-        public void UpdateOrder(int id, OrderDto order)
-        {
-            var orderUpdate = _orderRepository.GetOrderById(id);
-            orderUpdate.StatusOrder = order.StatusOrder;
-            _orderRepository.UpdateOrder(orderUpdate);
-        }
+        //private readonly IProductRepository _productRepository;
 
-        public Order CreateOrder(OrderDto order)
-        {
+        //public OrderService(IOrderRepository orderRepository, IProductRepository productRepository = null)
+        //{
+        //    _orderRepository = orderRepository;
+        //    _productRepository = productRepository;
+        //}
 
-            var newOrder = new Order() 
-            {
-                Id = order.Id, // borrar
-                //AmountProducts = order.AmountProducts,
-                PaymentMethod = order.PaymentMethod,
-                StatusOrder = order.StatusOrder,
-                //Customer = customer,
-                //Seller = seller
-            };
+        //public ICollection<Order> GetAll()
+        //{
+        //    return _orderRepository.GetAll();
+        //}
 
-           foreach (var productId in order.ProductsIds)
-           {
-               var product = _productRepository.GetProductById(productId);
-               if (product != null)
-               {
-                   //newOrder.Products.Add(product);
-               }
-           }
+        //public Order GetOrderById(int id)
+        //{
+        //    return _orderRepository.GetOrderById(id);
+        //}
 
-           //newOrder.AmountProducts = newOrder.Products.Count;
+        //public void DeleteOrder(int id)
+        //{
+        //    var orderDelete = _orderRepository.GetOrderById(id);
+        //    _orderRepository.DeleteOrder(orderDelete);
+        //}
+
+        //public void UpdateOrder(int id, OrderDto order)
+        //{
+        //    var orderUpdate = _orderRepository.GetOrderById(id);
+        //    orderUpdate.StatusOrder = order.StatusOrder;
+        //    _orderRepository.UpdateOrder(orderUpdate);
+        //}
+
+        //public Order CreateOrder(OrderDto order)
+        //{
+
+        //    var newOrder = new Order() 
+        //    {
+        //        Id = order.Id, // borrar
+        //        //AmountProducts = order.AmountProducts,
+        //        PaymentMethod = order.PaymentMethod,
+        //        StatusOrder = order.StatusOrder,
+        //        //Customer = customer,
+        //        //Seller = seller
+        //    };
+
+        //   foreach (var productId in order.ProductsIds)
+        //   {
+        //       var product = _productRepository.GetProductById(productId);
+        //       if (product != null)
+        //       {
+        //           //newOrder.Products.Add(product);
+        //       }
+        //   }
+
+        //   //newOrder.AmountProducts = newOrder.Products.Count;
 
 
-            _orderRepository.AddOrder(newOrder);
-            return _orderRepository.GetOrderById(order.Id);
-        }        
+        //    _orderRepository.AddOrder(newOrder);
+        //    return _orderRepository.GetOrderById(order.Id);
+        //}        
     }
 }

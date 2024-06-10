@@ -1,4 +1,5 @@
-﻿using Domain.Enum;
+﻿using Domain.Entities;
+using Domain.Enum;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -10,14 +11,36 @@ namespace Application.Models
 {
     public class UserDto
     {
-        // UTILIZAR DECORADORES SEGUNDA GRABACION 9:30
-        public int Id { get; set; }
+        //public int Id { get; set; }
+        [Required]
         public string Name { get; set; }
+
+        [Required]
         public string Password { get; set; }
-        [EmailAddress]
+
+        [Required]
         public string Email { get; set; }
-        public string RegisterDate { get; set; }
+
+        [Required]
+        public DateTime RegisterDate { get; set; }
+
+        [Required]
         public UserType UserType { get; set; }
 
+        [Required]
+        public IEnumerable<OrderNotification>? OrderNotifications { get; set; }
+
+        public static UserDto ToDto(User User)
+        {
+            UserDto dto = new UserDto();
+            //dto.Id = User.Id;
+            dto.Name = User.Name;
+            dto.Password = User.Password;
+            dto.Email = User.Email;
+            dto.RegisterDate = User.RegisterDate;
+            dto.UserType = User.UserType;
+            dto.OrderNotifications = User.OrderNotifications;
+            return dto;
+        }
     }
 }

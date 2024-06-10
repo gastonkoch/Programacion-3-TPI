@@ -28,12 +28,11 @@ namespace Domain.Entities
 
         [Required]
         [Column(TypeName = "datetime")]
-        public string RegisterDate { get; set; }
+        public DateTime RegisterDate { get; set; }
 
         [Required]
         public UserType UserType { get; set; } // Tipo
 
-        public IEnumerable<OrderNotification>? OrderNotifications { get; set; } 
-        
+        public IEnumerable<OrderNotification>? OrderNotifications { get; set; }
     }
 }

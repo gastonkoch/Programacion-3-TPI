@@ -15,7 +15,6 @@ namespace Domain.Entities
         public int Id { get; set; }
         [Column(TypeName = "nvarchar(400)")]
         public string Message { get; set; }
-        [Required]
         public Order Order { get; set; }
 
         public IEnumerable<User>? User { get; set; }

@@ -1,4 +1,5 @@
 ﻿using Application.Models;
+using Application.Models.Requests;
 using Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -11,13 +12,13 @@ namespace Application.Interfaces
     public interface IOrderService
     {
         //Lo Order en un futuro van a ser OrderDto todavia no dimos por que
-        ICollection<Order> GetAll();
-        Order GetOrderById(int id);
-        Order CreateOrder(OrderDto order); // Create
+        //ICollection<Order> GetAll();
+        OrderDto GetOrderById(int id);
+        OrderDto CreateOrder(OrderCreateRequest order); // Create
 
-        //Order AddOrderProduct(Product product);
-        void DeleteOrder(int id);
-        void UpdateOrder(int id, OrderDto order);
+        ////Order AddOrderProduct(Product product);
+        //void DeleteOrder(int id);
+        //void UpdateOrder(int id, OrderDto order);
         //int CheckStock(int OrderId,int ProductId);
         //bool FinishOrder(int id);
     }

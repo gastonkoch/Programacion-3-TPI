@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Domain.Interfaces
 {
-    public interface IUserRepository
+    public interface IUserRepository : IRepositoryBase<User>
     {
-        ICollection<User> GetAll();
-        User GetUserById(int id);
-        User AddUser(User customer); // Create
-        void DeleteUser(User customer);
-        void UpdateUser(User customer);
+        //ICollection<User> GetAll();
+        //User GetUserById(int id);
+        //User AddUser(User customer); // Create
+        //void DeleteUser(User customer);
+        //void UpdateUser(User customer);
     }
 }

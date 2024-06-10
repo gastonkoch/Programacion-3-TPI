@@ -8,11 +8,13 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Data
 {
-    public class ProductRepository : IProductRepository
+    public class ProductRepository : EfRepository<Product>, IProductRepository
     {
-        public Product GetProductById(int id)
-        {
-            return null;
-        }
+        public ProductRepository(ApplicationDbContext context) : base(context) { }
+
+        //public Product GetProductById(int id)
+        //{
+        //    return null;
+        //}
     }
 }

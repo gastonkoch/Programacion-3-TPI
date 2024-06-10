@@ -1,4 +1,5 @@
 ﻿using Application.Models;
+using Application.Models.Requests;
 using Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -11,10 +12,10 @@ namespace Application.Interfaces
     public interface IUserService
     {
         //Lo User en un futuro van a ser UserDto todavia no dimos por que
-        ICollection<User> GetAllUsers(); //GetAll
-        User GetUserById(int id);
-        void DeleteUser(int id);
-        void UpdateUser(int id, UserDto customer);
-        User CreateUser(UserDto customer);
+        //ICollection<User> GetAllUsers(); //GetAll
+        UserDto GetUserById(int id);
+        //void DeleteUser(int id);
+        //void UpdateUser(int id, UserDto customer);
+        UserDto CreateUser(UserCreateRequest user);
     }
 }

@@ -27,8 +27,8 @@ namespace Domain.Entities
 
         [Required]
         [Column(TypeName = "int(4.0)")]
-        public int Stock {  get; set; }
+        public int Stock { get; set; }
 
-        public IEnumerable<Order>? OrdersWithProducts {  get; set; }       
+        public IEnumerable<Order>? OrdersWithProducts { get; set; }
     }
 }

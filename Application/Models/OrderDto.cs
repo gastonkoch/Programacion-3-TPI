@@ -10,15 +10,25 @@ namespace Application.Models
 {
     public class OrderDto
     {
-        public int Id { get; set; }
+        //public int Id { get; set; }
         public int AmountProducts { get; set; }
-        //public IEnumerable<Product> Products { get; set; }
-        //public int ProductId { get; set; }
-        public List<int> ProductsIds { get; set; }
-        
         public PaymentMethod PaymentMethod { get; set; }
-        public StatusOrder StatusOrder { get; set; }  
-        public int CustomerId { get; set; }
-        public int SellerId { get; set; }
+        public StatusOrder StatusOrder { get; set; }
+        public User Customer { get; set; }
+        public User Seller { get; set; }
+        public IEnumerable<Product> ProductsInOrder { get; set; }
+
+        public static OrderDto ToDto(Order order)
+        {
+            OrderDto dto = new OrderDto();
+            //dto.Id = order.Id;
+            dto.AmountProducts = order.AmountProducts;
+            dto.PaymentMethod = order.PaymentMethod;
+            dto.StatusOrder = order.StatusOrder;
+            dto.Customer = order.Customer;
+            dto.Seller = order.Seller;
+            dto.ProductsInOrder = order.ProductsInOrder;
+            return dto;
+        }
     }
 }

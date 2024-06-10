@@ -14,22 +14,26 @@ namespace Domain.Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        
+
+        [Required]
         [Column(TypeName = "int(4.0)")]
         public int AmountProducts { get; set; } = 0;// ver como hacer para que el amoute se calcule segun la cantidad de elementos que tenga product
-        
+
+        [Required]
         public PaymentMethod PaymentMethod { get; set; }
-        
+
+        [Required]
         public StatusOrder StatusOrder { get; set; } = StatusOrder.InProgress;
-        
+
         [Required]
         //public int CustomerId { get; set; }
         public User Customer { get; set; } // Revisar si conviene usar el id o el objeto
-        
+
         [Required]
         //public int SellerId { get; set; }
         public User Seller { get; set; } // Revisar si conviene usar el id o el objeto
 
+        [Required]
         public IEnumerable<Product> ProductsInOrder { get; set; }
 
     }

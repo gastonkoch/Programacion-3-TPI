@@ -34,9 +34,15 @@ builder.Services.AddDbContext<ApplicationDbContext>(dbContextOptions => dbContex
 
 
 #region Repositories
-builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<ApplicationDbContext>();
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IOrderNotificationRepository, OrderNotificationRepository>();
 builder.Services.AddScoped<IRepositoryBase<User>, EfRepository<User>>();
+builder.Services.AddScoped<IRepositoryBase<Order>, EfRepository<Order>>();
+builder.Services.AddScoped<IRepositoryBase<Product>, EfRepository<Product>>();
+builder.Services.AddScoped<IRepositoryBase<OrderNotification>, EfRepository<OrderNotification>>();
 #endregion
 
 #region Services

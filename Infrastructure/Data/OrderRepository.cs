@@ -8,41 +8,43 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Data
 {
-    public class OrderRepository : IOrderRepository
+    public class OrderRepository : EfRepository<Order>, IOrderRepository
     {
-        public ICollection<Order> GetAll()
-        {
-            return null;
-        }
+        public OrderRepository(ApplicationDbContext context) : base(context) { }
 
-        public Order GetOrderById(int id)
-        {
-            return null;
-        }
-        public Order AddOrder(Order order)
-        {
-            return null;
-        }
-        //public User AddOrderProduct(User user)
+        //public ICollection<Order> GetAll()
+        //{
+        //    return null;
+        //}
 
-        public void DeleteOrder(Order order)
-        {
+        //public Order GetOrderById(int id)
+        //{
+        //    return null;
+        //}
+        //public Order AddOrder(Order order)
+        //{
+        //    return null;
+        //}
+        ////public User AddOrderProduct(User user)
 
-        }
+        //public void DeleteOrder(Order order)
+        //{
 
-        public void UpdateOrder(Order order)
-        {
+        //}
 
-        }
-        public int CheckStock(Product product)
-        {
-            return 0;
-        }
+        //public void UpdateOrder(Order order)
+        //{
 
-        public bool FinishOrder()
-        {
-            return false;
-        }
+        //}
+        //public int CheckStock(Product product)
+        //{
+        //    return 0;
+        //}
+
+        //public bool FinishOrder()
+        //{
+        //    return false;
+        //}
 
     }
 }

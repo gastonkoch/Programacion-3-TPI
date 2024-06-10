@@ -23,3 +23,16 @@ C:\SourceCode\TP-PROG3\Programacion-3-TPI\Domain\obj\Debug\net8.0\refint\Domain.
 C:\SourceCode\TP-PROG3\Programacion-3-TPI\Domain\obj\Debug\net8.0\Domain.pdb
 C:\SourceCode\TP-PROG3\Programacion-3-TPI\Domain\obj\Debug\net8.0\ref\Domain.dll
 C:\Users\GasTon\Desktop\Programacion 3 TPI\Programacion 3 TPI\Domain\obj\Debug\net8.0\Domain.csproj.AssemblyReference.cache
+C:\SourceCode\NEW TP PROG3\Programacion-3-TPI\Domain\bin\Debug\net8.0\Domain.deps.json
+C:\SourceCode\NEW TP PROG3\Programacion-3-TPI\Domain\bin\Debug\net8.0\Domain.dll
+C:\SourceCode\NEW TP PROG3\Programacion-3-TPI\Domain\bin\Debug\net8.0\Domain.pdb
+C:\SourceCode\NEW TP PROG3\Programacion-3-TPI\Domain\obj\Debug\net8.0\Domain.csproj.AssemblyReference.cache
+C:\SourceCode\NEW TP PROG3\Programacion-3-TPI\Domain\obj\Debug\net8.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\SourceCode\NEW TP PROG3\Programacion-3-TPI\Domain\obj\Debug\net8.0\Domain.AssemblyInfoInputs.cache
+C:\SourceCode\NEW TP PROG3\Programacion-3-TPI\Domain\obj\Debug\net8.0\Domain.AssemblyInfo.cs
+C:\SourceCode\NEW TP PROG3\Programacion-3-TPI\Domain\obj\Debug\net8.0\Domain.csproj.CoreCompileInputs.cache
+C:\SourceCode\NEW TP PROG3\Programacion-3-TPI\Domain\obj\Debug\net8.0\Domain.sourcelink.json
+C:\SourceCode\NEW TP PROG3\Programacion-3-TPI\Domain\obj\Debug\net8.0\Domain.dll
+C:\SourceCode\NEW TP PROG3\Programacion-3-TPI\Domain\obj\Debug\net8.0\refint\Domain.dll
+C:\SourceCode\NEW TP PROG3\Programacion-3-TPI\Domain\obj\Debug\net8.0\Domain.pdb
+C:\SourceCode\NEW TP PROG3\Programacion-3-TPI\Domain\obj\Debug\net8.0\ref\Domain.dll

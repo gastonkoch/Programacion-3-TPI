@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Domain.Interfaces
 {
-    public interface IProductRepository
+    public interface IProductRepository : IRepositoryBase<Product>
     {
-        Product GetProductById(int id);
+        //Product GetProductById(int id);
     }
 }

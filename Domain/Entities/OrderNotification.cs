@@ -10,10 +10,14 @@ namespace Domain.Entities
 {
     public class OrderNotification
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         [Column(TypeName = "nvarchar(400)")]
         public string Message { get; set; }
         [Required]
         public Order Order { get; set; }
+
+        public IEnumerable<User>? User { get; set; }
     }
 }

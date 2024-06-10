@@ -8,8 +8,10 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Data
 {
-    public class UserRepository : IUserRepository
+    public class UserRepository :  EfRepository<User>, IUserRepository
     {
+        public UserRepository(ApplicationDbContext context) : base(context) { }
+
         public ICollection<User> GetAll()
         {
             return null;

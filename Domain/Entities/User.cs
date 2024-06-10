@@ -9,10 +9,11 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    public class User
+    public class User // Revisar si esto va ser abstracto
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-
         [Required]
         [Column(TypeName = "nvarchar(256)")]
         public string Name { get; set; }
@@ -30,9 +31,9 @@ namespace Domain.Entities
         public string RegisterDate { get; set; }
 
         [Required]
-        public UserType UserType { get; set; }
+        public UserType UserType { get; set; } // Tipo
 
-        //public IEnumerable<OrderNotification> Notifications { get; set; } Descomentar cuando tengamos creada esa clase
-
+        public IEnumerable<OrderNotification>? OrderNotifications { get; set; } 
+        
     }
 }

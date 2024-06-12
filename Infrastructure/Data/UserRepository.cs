@@ -12,6 +12,11 @@ namespace Infrastructure.Data
     {
         public UserRepository(ApplicationDbContext context) : base(context) { }
 
+        public User? GetByUserName(string userName)
+        {
+            return _applicationDbContext.Users.SingleOrDefault(p => p.Name == userName);
+        }
+
         //public ICollection<User> GetAll()
         //{
         //    return null;

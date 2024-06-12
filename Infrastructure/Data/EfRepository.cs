@@ -8,7 +8,7 @@ namespace Infrastructure.Data
 {
     public class EfRepository<T> : RepositoryBase<T> where T : class
     {
-        private readonly ApplicationDbContext _applicationDbContext;
+        public readonly ApplicationDbContext _applicationDbContext;
         public EfRepository(ApplicationDbContext dbContext) : base(dbContext)
         {
             _applicationDbContext = dbContext;

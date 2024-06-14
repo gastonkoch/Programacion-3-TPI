@@ -21,32 +21,32 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 
-builder.Services.AddSwaggerGen(setupAction =>
-{
-    setupAction.AddSecurityDefinition("EcommerceApiBearerAuth", new OpenApiSecurityScheme() //Esto va a permitir usar swagger con el token.
-    {
-        Type = SecuritySchemeType.Http,
-        Scheme = "Bearer",
-        Description = "Acá pegar el token generado al loguearse."
-    });
+//builder.Services.AddSwaggerGen(setupAction =>
+//{
+//    setupAction.AddSecurityDefinition("EcommerceApiBearerAuth", new OpenApiSecurityScheme() //Esto va a permitir usar swagger con el token.
+//    {
+//        Type = SecuritySchemeType.Http,
+//        Scheme = "Bearer",
+//        Description = "Acá pegar el token generado al loguearse."
+//    });
 
-    setupAction.AddSecurityRequirement(new OpenApiSecurityRequirement
-    {
-        {
-            new OpenApiSecurityScheme
-            {
-                Reference = new OpenApiReference
-                {
-                    Type = ReferenceType.SecurityScheme,
-                    Id = "EcommerceApiBearerAuth" } //Tiene que coincidir con el id seteado arriba en la definición
-                }, new List<string>() }
-    });
+//    setupAction.AddSecurityRequirement(new OpenApiSecurityRequirement
+//    {
+//        {
+//            new OpenApiSecurityScheme
+//            {
+//                Reference = new OpenApiReference
+//                {
+//                    Type = ReferenceType.SecurityScheme,
+//                    Id = "EcommerceApiBearerAuth" } //Tiene que coincidir con el id seteado arriba en la definición
+//                }, new List<string>() }
+//    });
 
-    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-    setupAction.IncludeXmlComments(xmlPath);
+//    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+//    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+//    setupAction.IncludeXmlComments(xmlPath);
 
-});
+//});
 
 
 
@@ -87,17 +87,17 @@ builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.Configure<AutenticacionServiceOptions>(
     builder.Configuration.GetSection(AutenticacionServiceOptions.AutenticacionService));
 
-builder.Services.AddAuthentication("Bearer")
-    .AddJwtBearer(options =>
-    options.TokenValidationParameters = new()
-    {
-        ValidateIssuer = true, //Issuer hace referencia al que ofrece el servicio de validacion
-        ValidateAudience = true, //Audience aquel al que le pegue a nuestro enpoint sera nuestra audiencia
-        ValidateIssuerSigningKey = true,
-        ValidIssuer = builder.Configuration["AutenticacionService:Issuer"],
-        ValidAudience = builder.Configuration["AutenticacionService:Audience"],
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(builder.Configuration["AutenticacionService:SecretForKey"]))
-    });
+//builder.Services.AddAuthentication("Bearer")
+//    .AddJwtBearer(options =>
+//    options.TokenValidationParameters = new()
+//    {
+//        ValidateIssuer = true, //Issuer hace referencia al que ofrece el servicio de validacion
+//        ValidateAudience = true, //Audience aquel al que le pegue a nuestro enpoint sera nuestra audiencia
+//        ValidateIssuerSigningKey = true,
+//        ValidIssuer = builder.Configuration["AutenticacionService:Issuer"],
+//        ValidAudience = builder.Configuration["AutenticacionService:Audience"],
+//        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(builder.Configuration["AutenticacionService:SecretForKey"]))
+//    });
     
 
 var app = builder.Build();

@@ -3,6 +3,7 @@ using Domain.Enum;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,9 +30,11 @@ namespace Infrastructure.Data
 
             modelBuilder.Entity<User>().HasData(CreateCustomerSellerDataSeed());
 
+            modelBuilder.Entity<Product>().HasData(CreateProductDataSeed());
+
             //modelBuilder.Entity<Order>().HasData(CreateOrderDataSeed());
 
-            //modelBuilder.Entity<Product>().HasData(CreateProductDataSeed());
+
 
 
             base.OnModelCreating(modelBuilder);
@@ -54,7 +57,7 @@ namespace Infrastructure.Data
             Name = "Gaston",
             Password = "1",
             Email = "gaston@gmail.com",
-            RegisterDate = DateTime.Parse("06/06/2024"),
+            RegisterDate = DateTime.ParseExact("06/06/2024", "dd/MM/yyyy", CultureInfo.InvariantCulture),
             UserType = Domain.Enum.UserType.Seller
         },
         new User
@@ -63,7 +66,7 @@ namespace Infrastructure.Data
             Name = "Maria",
             Password = "2",
             Email = "maria@gmail.com",
-            RegisterDate = DateTime.Parse("05/04/2024"),
+            RegisterDate =  DateTime.ParseExact("05/04/2024", "dd/MM/yyyy", CultureInfo.InvariantCulture),
             UserType = Domain.Enum.UserType.Customer
         },
         new User
@@ -72,7 +75,7 @@ namespace Infrastructure.Data
             Name = "Juan",
             Password = "3",
             Email = "juan@gmail.com",
-            RegisterDate = DateTime.Parse("01/02/2024"),
+            RegisterDate = DateTime.ParseExact("01/02/2024", "dd/MM/yyyy", CultureInfo.InvariantCulture),
             UserType = Domain.Enum.UserType.Seller
         },
         new User
@@ -81,7 +84,7 @@ namespace Infrastructure.Data
             Name = "Ana",
             Password = "4",
             Email = "ana@gmail.com",
-            RegisterDate = DateTime.Parse("10/05/2024"),
+            RegisterDate = DateTime.ParseExact("10/05/2024", "dd/MM/yyyy", CultureInfo.InvariantCulture),
             UserType = Domain.Enum.UserType.Customer
         },
         new User
@@ -90,7 +93,7 @@ namespace Infrastructure.Data
             Name = "Luis",
             Password = "5",
             Email = "luis@gmail.com",
-            RegisterDate = DateTime.Parse("15/03/2024"),
+            RegisterDate = DateTime.ParseExact("15/03/2024", "dd/MM/yyyy", CultureInfo.InvariantCulture),
             UserType = Domain.Enum.UserType.Seller
         }
             };
@@ -100,36 +103,36 @@ namespace Infrastructure.Data
 
 
 
-        //private Product[] CreateProductDataSeed()
-        //{
-        //    Product[] result;
-        //    result = [
-        //        new Product
-        //        {
-        //            Id = 1,
-        //            Name = "Remera",
-        //            Price = 100.00f,
-        //            Description = "Talle L color blanco",
-        //            Stock = 50,
-        //        },
-        //        new Product
-        //        {
-        //            Id = 2,
-        //            Name = "Pantalon",
-        //            Price = 200.00f,
-        //            Description = "Talle 44 jean",
-        //            Stock = 30,
-        //        },
-        //        new Product
-        //        {
-        //            Id = 3,
-        //            Name = "Zapatos",
-        //            Price = 300.00f,
-        //            Description = "Talle 40 de color negro",
-        //            Stock = 20,
-        //        }];
-        //    return result;
-        //}
+        private Product[] CreateProductDataSeed()
+        {
+            Product[] result;
+            result = [
+                new Product
+                {
+                    Id = 1,
+                    Name = "Remera",
+                    Price = 100.00f,
+                    Description = "Talle L color blanco",
+                    Stock = 50,
+                },
+                new Product
+                {
+                    Id = 2,
+                    Name = "Pantalon",
+                    Price = 200.00f,
+                    Description = "Talle 44 jean",
+                    Stock = 30,
+                },
+                new Product
+                {
+                    Id = 3,
+                    Name = "Zapatos",
+                    Price = 300.00f,
+                    Description = "Talle 40 de color negro",
+                    Stock = 20,
+                }];
+            return result;
+        }
 
         //private Order[] CreateOrderDataSeed()
         //{

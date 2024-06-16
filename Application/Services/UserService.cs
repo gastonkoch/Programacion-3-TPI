@@ -20,6 +20,11 @@ namespace Application.Services
             _userRepository = userRepository;
         }
 
+        public ICollection<UserDto> GetAllUsers()
+        {
+            var users = UserDto.ToList(_userRepository.ListAsync().Result ?? throw new Exception("No se encontraron usuarios"));
+            return users;
+        }
 
         public UserDto GetUserById(int id)
         {
@@ -33,42 +38,15 @@ namespace Application.Services
 
         }
 
+        public void UpdateUser(int id, UserCreateRequest userDto) 
+        {
+            _userRepository.UpdateAsync(UserCreateRequest.ToEntity(userDto));
+        }
 
-        //public User GetUserById(int id)
-        //{
-        //    return _userRepository.GetUserById(id);
-        //}
-
-        //public ICollection<User> GetAllUsers() 
-        //{
-        //    return _userRepository.GetAll();
-        //}
-        //public void DeleteUser(int id)
-        //{
-        //    var userDelete = _userRepository.GetUserById(id);    
-        //    _userRepository.DeleteUser(userDelete);
-        //}
-
-        //public void UpdateUser(int id, UserDto userDto) 
-        //{
-        //   var userUpdate = _userRepository.GetUserById(id);
-        //    userUpdate.Password = userDto.Password;
-        //    _userRepository.UpdateUser(userUpdate); 
-        //}
-
-        //public User CreateUser(UserDto user)
-        //{
-        //    var newUser = new User()
-        //    {
-        //        Id = user.Id, // borrar
-        //        Name = user.Name,
-        //        Password = user.Password,
-        //        Email = user.Email,
-        //        RegisterDate = user.RegisterDate,
-        //        UserType = user.UserType,
-        //    };
-        //    _userRepository.AddUser(newUser);
-        //    return _userRepository.GetUserById(user.Id); // Esto no tendria sentido cuando tengamos Base da datos por que el id no llegaria por parametro
-        //}
+        public void DeleteUser(int id)
+        {
+            var userDto = _userRepository.GetByIdAsync(id).Result ?? throw new Exception("No se encontro el usuario");
+            _userRepository.DeleteAsync(userDto);
+        }
     }
 }

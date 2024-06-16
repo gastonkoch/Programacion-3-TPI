@@ -11,11 +11,10 @@ namespace Application.Interfaces
 {
     public interface IUserService
     {
-        //Lo User en un futuro van a ser UserDto todavia no dimos por que
-        //ICollection<User> GetAllUsers(); //GetAll
+        ICollection<UserDto> GetAllUsers();
         UserDto GetUserById(int id);
-        //void DeleteUser(int id);
-        //void UpdateUser(int id, UserDto customer);
+        void UpdateUser(int id, UserCreateRequest customer);
+        void DeleteUser(int id);
         UserDto CreateUser(UserCreateRequest user);
     }
 }

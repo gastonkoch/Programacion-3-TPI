@@ -11,7 +11,9 @@ namespace Application.Models
 {
     public class UserDto
     {
-        //public int Id { get; set; }
+        [Required]
+        public int Id { get; set; }
+
         [Required]
         public string Name { get; set; }
 
@@ -27,20 +29,30 @@ namespace Application.Models
         [Required]
         public UserType UserType { get; set; }
 
-        [Required]
-        public IEnumerable<OrderNotification>? OrderNotifications { get; set; }
+        //public IEnumerable<OrderNotification>? OrderNotifications { get; set; }
 
         public static UserDto ToDto(User User)
         {
             UserDto dto = new UserDto();
-            //dto.Id = User.Id;
+            dto.Id = User.Id;
             dto.Name = User.Name;
             dto.Password = User.Password;
             dto.Email = User.Email;
             dto.RegisterDate = User.RegisterDate;
             dto.UserType = User.UserType;
-            dto.OrderNotifications = User.OrderNotifications;
+            //dto.OrderNotifications = User.OrderNotifications;
             return dto;
+        }
+
+        public static List<UserDto> ToList(ICollection<User> users)
+        {
+            List<UserDto> listUsersDto = new List<UserDto>();
+
+            foreach (var user in users)
+            {
+                listUsersDto.Add(UserDto.ToDto(user));
+            }
+            return listUsersDto;
         }
     }
 }

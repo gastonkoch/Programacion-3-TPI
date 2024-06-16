@@ -4,6 +4,7 @@ using Application.Models.Requests;
 using Domain.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Globalization;
 
 namespace Web.Controllers
 {
@@ -16,6 +17,19 @@ namespace Web.Controllers
         public UserController(IUserService userService)
         {
             _userService = userService;
+        }
+
+        [HttpGet]
+        public ActionResult<ICollection<User>> GetAllUsers()
+        {
+            try
+            {
+                return Ok(_userService.GetAllUsers());
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("{id}")]
@@ -36,7 +50,7 @@ namespace Web.Controllers
         {
             try
             {
-                return _userService.CreateUser(user);
+                return Ok(_userService.CreateUser(user)); 
 
             }
             catch (Exception ex)
@@ -45,31 +59,17 @@ namespace Web.Controllers
             }
         }
 
-        //[HttpGet]
-        //public ActionResult<ICollection<User>> GetAll()
-        //{
-        //    try
-        //    {
-        //        return Ok(_userService.GetAllUsers());
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return BadRequest(ex.Message);
-        //    }
-        //}
+        [HttpPut("{id}")]
+        public  void  UpdateUser([FromRoute] int id, [FromBody] UserCreateRequest user)
+        {
+            _userService.UpdateUser(id, user);
+        }
 
-        //[HttpDelete("{id}")]
-        //public void DeleteUser([FromRoute] int id)
-        //{
-        //    _userService.DeleteUser(id);
-        //}
-
-        //[HttpPut("{id}")]
-        //public void UpdateUser([FromRoute] int id, [FromBody] UserDto user)
-        //{
-        //    _userService.UpdateUser(id, user);
-        //}
-
+        [HttpDelete("{id}")]
+        public void DeleteUser([FromRoute] int id)
+        {
+            _userService.DeleteUser(id);
+        }
 
     }
 }

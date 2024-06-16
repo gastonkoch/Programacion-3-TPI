@@ -1,6 +1,8 @@
 ﻿using Application.Interfaces;
 using Application.Models;
 using Application.Models.Requests;
+using Application.Services;
+using Domain.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,6 +16,19 @@ namespace Web.Controllers
         public ProductController(IProductService productService)
         {
             _productService = productService;
+        }
+
+        [HttpGet]
+        public ActionResult<ICollection<Product>> GetAllUsers()
+        {
+            try
+            {
+                return Ok(_productService.GetAllProducts());
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("{id}")]
@@ -39,5 +54,20 @@ namespace Web.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+
+        [HttpPut("{id}")]
+        public void UpdateProduct([FromRoute] int id, [FromBody] ProductCreateRequest product)
+        {
+            _productService.UpdateProduct(id, product);
+        }
+
+
+        [HttpDelete("{id}")]
+        public void DeleteProduct([FromRoute] int id)
+        {
+            _productService.DeleteProduct(id);
+        }
+
     }
 }

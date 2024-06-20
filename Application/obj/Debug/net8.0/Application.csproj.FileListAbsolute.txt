@@ -62,3 +62,19 @@ C:\Users\GasTon\Desktop\Programacion 3 TPI\Programacion-3-TPI\Application\obj\De
 C:\Users\GasTon\Desktop\Programacion 3 TPI\Programacion-3-TPI\Application\obj\Debug\net8.0\refint\Application.dll
 C:\Users\GasTon\Desktop\Programacion 3 TPI\Programacion-3-TPI\Application\obj\Debug\net8.0\Application.pdb
 C:\Users\GasTon\Desktop\Programacion 3 TPI\Programacion-3-TPI\Application\obj\Debug\net8.0\ref\Application.dll
+C:\SourceCode\TP PROG 3 OFFICIAAAAAAAAAAAAAAAAAL\Programacion-3-TPI\Application\bin\Debug\net8.0\Application.deps.json
+C:\SourceCode\TP PROG 3 OFFICIAAAAAAAAAAAAAAAAAL\Programacion-3-TPI\Application\bin\Debug\net8.0\Application.dll
+C:\SourceCode\TP PROG 3 OFFICIAAAAAAAAAAAAAAAAAL\Programacion-3-TPI\Application\bin\Debug\net8.0\Application.pdb
+C:\SourceCode\TP PROG 3 OFFICIAAAAAAAAAAAAAAAAAL\Programacion-3-TPI\Application\bin\Debug\net8.0\Domain.dll
+C:\SourceCode\TP PROG 3 OFFICIAAAAAAAAAAAAAAAAAL\Programacion-3-TPI\Application\bin\Debug\net8.0\Domain.pdb
+C:\SourceCode\TP PROG 3 OFFICIAAAAAAAAAAAAAAAAAL\Programacion-3-TPI\Application\obj\Debug\net8.0\Application.csproj.AssemblyReference.cache
+C:\SourceCode\TP PROG 3 OFFICIAAAAAAAAAAAAAAAAAL\Programacion-3-TPI\Application\obj\Debug\net8.0\Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\SourceCode\TP PROG 3 OFFICIAAAAAAAAAAAAAAAAAL\Programacion-3-TPI\Application\obj\Debug\net8.0\Application.AssemblyInfoInputs.cache
+C:\SourceCode\TP PROG 3 OFFICIAAAAAAAAAAAAAAAAAL\Programacion-3-TPI\Application\obj\Debug\net8.0\Application.AssemblyInfo.cs
+C:\SourceCode\TP PROG 3 OFFICIAAAAAAAAAAAAAAAAAL\Programacion-3-TPI\Application\obj\Debug\net8.0\Application.csproj.CoreCompileInputs.cache
+C:\SourceCode\TP PROG 3 OFFICIAAAAAAAAAAAAAAAAAL\Programacion-3-TPI\Application\obj\Debug\net8.0\Application.sourcelink.json
+C:\SourceCode\TP PROG 3 OFFICIAAAAAAAAAAAAAAAAAL\Programacion-3-TPI\Application\obj\Debug\net8.0\Applicat.44B5EDA2.Up2Date
+C:\SourceCode\TP PROG 3 OFFICIAAAAAAAAAAAAAAAAAL\Programacion-3-TPI\Application\obj\Debug\net8.0\Application.dll
+C:\SourceCode\TP PROG 3 OFFICIAAAAAAAAAAAAAAAAAL\Programacion-3-TPI\Application\obj\Debug\net8.0\refint\Application.dll
+C:\SourceCode\TP PROG 3 OFFICIAAAAAAAAAAAAAAAAAL\Programacion-3-TPI\Application\obj\Debug\net8.0\Application.pdb
+C:\SourceCode\TP PROG 3 OFFICIAAAAAAAAAAAAAAAAAL\Programacion-3-TPI\Application\obj\Debug\net8.0\ref\Application.dll

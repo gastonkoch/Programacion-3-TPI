@@ -31,7 +31,7 @@ namespace Domain.Entities
         public DateTime RegisterDate { get; set; }
 
         [Required]
-        public UserType UserType { get; set; } // Tipo
+        public UserType UserType { get; set; }
 
         public IEnumerable<OrderNotification>? OrderNotifications { get; set; }
     }

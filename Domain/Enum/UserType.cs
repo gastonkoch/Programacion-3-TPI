@@ -9,6 +9,7 @@ namespace Domain.Enum
     public enum UserType
     {
         Customer,
-        Seller
+        Seller,
+        Admin
     }
 }

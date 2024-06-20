@@ -3,6 +3,7 @@ using Application.Models;
 using Application.Models.Requests;
 using Application.Services;
 using Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,7 +20,7 @@ namespace Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult<ICollection<Product>> GetAllUsers()
+        public ActionResult<ICollection<Product>> GetAllProducts()
         {
             try
             {
@@ -32,24 +33,27 @@ namespace Web.Controllers
         }
 
         [HttpGet("{id}")]
-        public ActionResult<ProductDto> GetProductById([FromRoute]int id)
+        public ActionResult<ProductDto> GetProductById([FromRoute] int id)
         {
             try
             {
                 return Ok(_productService.GetProductById(id));
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult<ProductDto> CreateProduct([FromBody] ProductCreateRequest product)
         {
             try
             {
                 return Ok(_productService.CreateProduct(product));
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
@@ -57,6 +61,7 @@ namespace Web.Controllers
 
 
         [HttpPut("{id}")]
+        [Authorize]
         public void UpdateProduct([FromRoute] int id, [FromBody] ProductCreateRequest product)
         {
             _productService.UpdateProduct(id, product);
@@ -64,6 +69,7 @@ namespace Web.Controllers
 
 
         [HttpDelete("{id}")]
+        [Authorize]
         public void DeleteProduct([FromRoute] int id)
         {
             _productService.DeleteProduct(id);

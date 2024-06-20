@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "8UiWgdjTtihD2mvhLvCoVAF1znKie6TLuGUedtzIR6WZKuUXvRyptVxHuJV0l5DKyENDt8yCV7vHYo3K/oHMyQ==",
+  "dgSpecHash": "kzjGgUhyt+4/ArR9RxgFJ3InRDt4mjkRqA900On5o+KjUo8MXsXRle4MfoilTOxDZNAh6BZ9kj0RwHGolEKl6g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\GasTon\\Desktop\\Programacion 3 TPI\\Programacion-3-TPI\\Domain\\Domain.csproj",
+  "projectFilePath": "C:\\SourceCode\\TP PROG 3 OFFICIAAAAAAAAAAAAAAAAAL\\Programacion-3-TPI\\Domain\\Domain.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\GasTon\\.nuget\\packages\\servicestack.interfaces\\8.2.2\\servicestack.interfaces.8.2.2.nupkg.sha512"
+    "C:\\Users\\alerc\\.nuget\\packages\\servicestack.interfaces\\8.2.2\\servicestack.interfaces.8.2.2.nupkg.sha512"
   ],
   "logs": []
 }

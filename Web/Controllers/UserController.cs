@@ -2,6 +2,7 @@
 using Application.Models;
 using Application.Models.Requests;
 using Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Globalization;
@@ -10,6 +11,7 @@ namespace Web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
@@ -50,7 +52,7 @@ namespace Web.Controllers
         {
             try
             {
-                return Ok(_userService.CreateUser(user)); 
+                return Ok(_userService.CreateUser(user));
 
             }
             catch (Exception ex)
@@ -60,7 +62,7 @@ namespace Web.Controllers
         }
 
         [HttpPut("{id}")]
-        public  void  UpdateUser([FromRoute] int id, [FromBody] UserCreateRequest user)
+        public void UpdateUser([FromRoute] int id, [FromBody] UserCreateRequest user)
         {
             _userService.UpdateUser(id, user);
         }

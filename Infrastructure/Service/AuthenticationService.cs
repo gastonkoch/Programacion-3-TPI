@@ -28,12 +28,15 @@ namespace Infrastructure.Service
 
         public User? ValidateUser(AuthenticationRequest authenticationRequest)
         {
-            if (string.IsNullOrEmpty(authenticationRequest.UserName) || string.IsNullOrEmpty(authenticationRequest.Password) ) return null;
+            if (string.IsNullOrEmpty(authenticationRequest.Email) || string.IsNullOrEmpty(authenticationRequest.Password))
+                return null;
 
-            var user = _userRepository.GetByUserName(authenticationRequest.UserName);
+            var user = _userRepository.GetByUserEmail(authenticationRequest.Email);
 
-            if (authenticationRequest.UserName == user.Name || authenticationRequest.Password == user.Password) return user ;
-        
+            if (user == null) return null;
+
+            if (authenticationRequest.Email == user.Email || authenticationRequest.Password == user.Password) return user;
+
             return null;
         }
 
@@ -50,7 +53,7 @@ namespace Infrastructure.Service
 
             //Hash del secreto
             var securityPassword = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(_options.SecretForKey)); // Obtenemos el salt
-            
+
             var credentials = new SigningCredentials(securityPassword, SecurityAlgorithms.HmacSha256); // Hasheamos el salt
 
             //Los claims son datos en clave->valor que nos permite guardar data del usuario.
@@ -62,7 +65,7 @@ namespace Infrastructure.Service
             claimsForToken.Add(new Claim("role", user.UserType.ToString()));
 
             //Creamos el token
-            var jwtSecurityToken = new JwtSecurityToken( //agregar using System.IdentityModel.Tokens.Jwt; Acá es donde se crea el token con toda la data que le pasamos antes.
+            var jwtSecurityToken = new JwtSecurityToken( //Acá es donde se crea el token con toda la data que le pasamos antes.
              _options.Issuer,
              _options.Audience,
              claimsForToken,

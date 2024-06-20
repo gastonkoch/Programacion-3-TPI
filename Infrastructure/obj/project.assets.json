@@ -4516,19 +4516,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\GasTon\\.nuget\\packages\\": {}
+    "C:\\Users\\alerc\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\GasTon\\Desktop\\Programacion 3 TPI\\Programacion-3-TPI\\Infrastructure\\Infrastructure.csproj",
+      "projectUniqueName": "C:\\SourceCode\\TP PROG 3 OFFICIAAAAAAAAAAAAAAAAAL\\Programacion-3-TPI\\Infrastructure\\Infrastructure.csproj",
       "projectName": "Infrastructure",
-      "projectPath": "C:\\Users\\GasTon\\Desktop\\Programacion 3 TPI\\Programacion-3-TPI\\Infrastructure\\Infrastructure.csproj",
-      "packagesPath": "C:\\Users\\GasTon\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\GasTon\\Desktop\\Programacion 3 TPI\\Programacion-3-TPI\\Infrastructure\\obj\\",
+      "projectPath": "C:\\SourceCode\\TP PROG 3 OFFICIAAAAAAAAAAAAAAAAAL\\Programacion-3-TPI\\Infrastructure\\Infrastructure.csproj",
+      "packagesPath": "C:\\Users\\alerc\\.nuget\\packages\\",
+      "outputPath": "C:\\SourceCode\\TP PROG 3 OFFICIAAAAAAAAAAAAAAAAAL\\Programacion-3-TPI\\Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\GasTon\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\alerc\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4542,8 +4542,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\GasTon\\Desktop\\Programacion 3 TPI\\Programacion-3-TPI\\Application\\Application.csproj": {
-              "projectPath": "C:\\Users\\GasTon\\Desktop\\Programacion 3 TPI\\Programacion-3-TPI\\Application\\Application.csproj"
+            "C:\\SourceCode\\TP PROG 3 OFFICIAAAAAAAAAAAAAAAAAL\\Programacion-3-TPI\\Application\\Application.csproj": {
+              "projectPath": "C:\\SourceCode\\TP PROG 3 OFFICIAAAAAAAAAAAAAAAAAL\\Programacion-3-TPI\\Application\\Application.csproj"
             }
           }
         }
@@ -4608,7 +4608,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

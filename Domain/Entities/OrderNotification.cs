@@ -16,7 +16,5 @@ namespace Domain.Entities
         [Column(TypeName = "nvarchar(400)")]
         public string Message { get; set; }
         public Order Order { get; set; }
-
-        public IEnumerable<User>? User { get; set; }
     }
 }

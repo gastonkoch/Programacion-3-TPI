@@ -22,11 +22,20 @@ namespace Infrastructure.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //modelBuilder.Entity<User>().HasDiscriminator(u => u.UserType);
 
-            modelBuilder.Entity<User>()
-            .HasDiscriminator<UserType>("UserType")
-            .HasValue<User>(UserType.Customer)
-            .HasValue<User>(UserType.Seller);
+            //modelBuilder.Entity<User>()
+            //.HasDiscriminator(u => u.UserType)
+            //.HasValue<User>(UserType.Customer)
+            //.HasValue<User>(UserType.Seller)
+            //.HasValue<User>(UserType.Admin);
+
+            // Revisar si esto rompe la migracion, lo que esta haciendo es que a la hora de autentificar desde el swagger no falle
+            // En la api catedra UserType es un string por eso funciona, el swagger no dice que tenemos enviar un int, entonces convertimos el int en un Enum
+            modelBuilder
+            .Entity<User>()
+            .Property(e => e.UserType)
+            .HasConversion<int>();
 
             modelBuilder.Entity<User>().HasData(CreateCustomerSellerDataSeed());
 
@@ -51,51 +60,60 @@ namespace Infrastructure.Data
         {
             User[] result = new User[]
             {
-        new User
-        {
-            Id = 1,
-            Name = "Gaston",
-            Password = "1",
-            Email = "gaston@gmail.com",
-            RegisterDate = DateTime.ParseExact("06/06/2024", "dd/MM/yyyy", CultureInfo.InvariantCulture),
-            UserType = Domain.Enum.UserType.Seller
-        },
-        new User
-        {
-            Id = 2,
-            Name = "Maria",
-            Password = "2",
-            Email = "maria@gmail.com",
-            RegisterDate =  DateTime.ParseExact("05/04/2024", "dd/MM/yyyy", CultureInfo.InvariantCulture),
-            UserType = Domain.Enum.UserType.Customer
-        },
-        new User
-        {
-            Id = 3,
-            Name = "Juan",
-            Password = "3",
-            Email = "juan@gmail.com",
-            RegisterDate = DateTime.ParseExact("01/02/2024", "dd/MM/yyyy", CultureInfo.InvariantCulture),
-            UserType = Domain.Enum.UserType.Seller
-        },
-        new User
-        {
-            Id = 4,
-            Name = "Ana",
-            Password = "4",
-            Email = "ana@gmail.com",
-            RegisterDate = DateTime.ParseExact("10/05/2024", "dd/MM/yyyy", CultureInfo.InvariantCulture),
-            UserType = Domain.Enum.UserType.Customer
-        },
-        new User
-        {
-            Id = 5,
-            Name = "Luis",
-            Password = "5",
-            Email = "luis@gmail.com",
-            RegisterDate = DateTime.ParseExact("15/03/2024", "dd/MM/yyyy", CultureInfo.InvariantCulture),
-            UserType = Domain.Enum.UserType.Seller
-        }
+                new User
+                {
+                    Id = 1,
+                    Name = "Gaston",
+                    Password = "1",
+                    Email = "gaston@gmail.com",
+                    RegisterDate = DateTime.ParseExact("06/06/2024", "dd/MM/yyyy", CultureInfo.InvariantCulture),
+                    UserType = Domain.Enum.UserType.Seller
+                },
+                new User
+                {
+                    Id = 2,
+                    Name = "Maria",
+                    Password = "2",
+                    Email = "maria@gmail.com",
+                    RegisterDate =  DateTime.ParseExact("05/04/2024", "dd/MM/yyyy", CultureInfo.InvariantCulture),
+                    UserType = Domain.Enum.UserType.Customer
+                },
+                new User
+                {
+                    Id = 3,
+                    Name = "Juan",
+                    Password = "3",
+                    Email = "juan@gmail.com",
+                    RegisterDate = DateTime.ParseExact("01/02/2024", "dd/MM/yyyy", CultureInfo.InvariantCulture),
+                    UserType = Domain.Enum.UserType.Seller
+                },
+                new User
+                {
+                    Id = 4,
+                    Name = "Ana",
+                    Password = "4",
+                    Email = "ana@gmail.com",
+                    RegisterDate = DateTime.ParseExact("10/05/2024", "dd/MM/yyyy", CultureInfo.InvariantCulture),
+                    UserType = Domain.Enum.UserType.Customer
+                },
+                new User
+                {
+                    Id = 5,
+                    Name = "Luis",
+                    Password = "5",
+                    Email = "luis@gmail.com",
+                    RegisterDate = DateTime.ParseExact("15/03/2024", "dd/MM/yyyy", CultureInfo.InvariantCulture),
+                    UserType = Domain.Enum.UserType.Seller
+                },
+                 new User
+                {
+                    Id = 7,
+                    Name = "admin",
+                    Password = "admin",
+                    Email = "admin@gmail.com",
+                    RegisterDate = DateTime.ParseExact("15/03/2024", "dd/MM/yyyy", CultureInfo.InvariantCulture),
+                    UserType = Domain.Enum.UserType.Admin
+                }
             };
 
             return result;
@@ -134,93 +152,93 @@ namespace Infrastructure.Data
             return result;
         }
 
-        //private Order[] CreateOrderDataSeed()
+        //private order[] createorderdataseed()
         //{
-        //    var users = CreateCustomerSellerDataSeed();
+        //    var users = createcustomersellerdataseed();
 
-        //    var products = CreateProductDataSeed();
+        //    var products = createproductdataseed();
 
-        //    Order[] result;
+        //    order[] result;
         //    result = [
-        //        //new Order
-        //        //{
-        //        //    Id = 1,
-        //        //    AmountProducts = 5,
-        //        //    PaymentMethod = PaymentMethod.Cash,
-        //        //    StatusOrder = StatusOrder.InProgress,
-        //        //    Customer = users[1], // Maria
-        //        //    Seller = users[0], // Gaston
-        //        //    ProductsInOrder = new List<Product> { products[0] }
-        //        //},
-        //        //new Order
-        //        //{
-        //        //    Id = 2,
-        //        //    AmountProducts = 3,
-        //        //    PaymentMethod = PaymentMethod.BankTransfer,
-        //        //    StatusOrder = StatusOrder.InProgress,
-        //        //    Customer = users[3], // Ana
-        //        //    Seller = users[0], // Gaston
-        //        //    ProductsInOrder = new List<Product> { products[1], products[2] }
-        //        //},
-        //        //new Order
-        //        //{
-        //        //    Id = 3,
-        //        //    AmountProducts = 7,
-        //        //    PaymentMethod = PaymentMethod.DebitCard,
-        //        //    StatusOrder = StatusOrder.Cancelled,
-        //        //    Customer = users[3], // Ana
-        //        //    Seller = users[4], // Luis
-        //        //    ProductsInOrder = new List<Product> { products[2]}
-        //        //},
-        //        //new Order
-        //        //{
-        //        //    Id = 4,
-        //        //    AmountProducts = 2,
-        //        //    PaymentMethod = PaymentMethod.CreditCard,
-        //        //    StatusOrder = StatusOrder.InProgress,
-        //        //    Customer = users[1], // Maria
-        //        //    Seller = users[2], // Juan
-        //        //    ProductsInOrder = new List<Product> { products[0], products[2] }
-        //        //}
-        //        new Order
+        //        new order
         //        {
-        //            Id = 1,
-        //            AmountProducts = 5,
-        //            PaymentMethod = PaymentMethod.Cash,
-        //            StatusOrder = StatusOrder.InProgress,
-        //            CustomerId = 2, // Maria
-        //            SellerId = 1,   // Gaston
-        //            ProductsInOrder = new List<Product> { new Product { Id = 1 } }
+        //            id = 1,
+        //            amountproducts = 5,
+        //            paymentmethod = paymentmethod.cash,
+        //            statusorder = statusorder.inprogress,
+        //            customer = users[1], // maria
+        //            seller = users[0], // gaston
+        //            productsinorder = new list<product> { products[0] }
         //        },
-        //        new Order
+        //        new order
         //        {
-        //            Id = 2,
-        //            AmountProducts = 3,
-        //            PaymentMethod = PaymentMethod.BankTransfer,
-        //            StatusOrder = StatusOrder.InProgress,
-        //            CustomerId = 4, // Ana
-        //            SellerId = 1,   // Gaston
-        //            ProductsInOrder = new List<Product> { new Product { Id = 2 }, new Product { Id = 3 } }
+        //            id = 2,
+        //            amountproducts = 3,
+        //            paymentmethod = paymentmethod.banktransfer,
+        //            statusorder = statusorder.inprogress,
+        //            customer = users[3], // ana
+        //            seller = users[0], // gaston
+        //            productsinorder = new list<product> { products[1], products[2] }
         //        },
-        //        new Order
+        //        new order
         //        {
-        //            Id = 3,
-        //            AmountProducts = 7,
-        //            PaymentMethod = PaymentMethod.DebitCard,
-        //            StatusOrder = StatusOrder.Cancelled,
-        //            CustomerId = 4, // Ana
-        //            SellerId = 5,   // Luis
-        //            ProductsInOrder = new List<Product> { new Product { Id = 3 } }
+        //            id = 3,
+        //            amountproducts = 7,
+        //            paymentmethod = paymentmethod.debitcard,
+        //            statusorder = statusorder.cancelled,
+        //            customer = users[3], // ana
+        //            seller = users[4], // luis
+        //            productsinorder = new list<product> { products[2]}
         //        },
-        //        new Order
+        //        new order
         //        {
-        //            Id = 4,
-        //            AmountProducts = 2,
-        //            PaymentMethod = PaymentMethod.CreditCard,
-        //            StatusOrder = StatusOrder.InProgress,
-        //            CustomerId = 2, // Maria
-        //            SellerId = 3,   // Juan
-        //            ProductsInOrder = new List<Product> { new Product { Id = 1 }, new Product { Id = 3 } }
+        //            id = 4,
+        //            amountproducts = 2,
+        //            paymentmethod = paymentmethod.creditcard,
+        //            statusorder = statusorder.inprogress,
+        //            customer = users[1], // maria
+        //            seller = users[2], // juan
+        //            productsinorder = new list<product> { products[0], products[2] }
+        //        },
+        //        new order
+        //        {
+        //            id = 1,
+        //            amountproducts = 5,
+        //            paymentmethod = paymentmethod.cash,
+        //            statusorder = statusorder.inprogress,
+        //            customerid = 2, // maria
+        //            sellerid = 1,   // gaston
+        //            productsinorder = new list<product> { new product { id = 1 } }
+        //        },
+        //        new order
+        //        {
+        //            id = 2,
+        //            amountproducts = 3,
+        //            paymentmethod = paymentmethod.banktransfer,
+        //            statusorder = statusorder.inprogress,
+        //            customerid = 4, // ana
+        //            sellerid = 1,   // gaston
+        //            productsinorder = new list<product> { new product { id = 2 }, new product { id = 3 } }
+        //        },
+        //        new order
+        //        {
+        //            id = 3,
+        //            amountproducts = 7,
+        //            paymentmethod = paymentmethod.debitcard,
+        //            statusorder = statusorder.cancelled,
+        //            customerid = 4, // ana
+        //            sellerid = 5,   // luis
+        //            productsinorder = new list<product> { new product { id = 3 } }
+        //        },
+        //        new order
+        //        {
+        //            id = 4,
+        //            amountproducts = 2,
+        //            paymentmethod = paymentmethod.creditcard,
+        //            statusorder = statusorder.inprogress,
+        //            customerid = 2, // maria
+        //            sellerid = 3,   // juan
+        //            productsinorder = new list<product> { new product { id = 1 }, new product { id = 3 } }
         //        }];
         //    return result;
         //}

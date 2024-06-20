@@ -17,15 +17,15 @@ namespace Application.Models
         [Required]
         public Order Order { get; set; }
 
-        public IEnumerable<User>? User { get; set; }
-    
+        //public IEnumerable<User>? User { get; set; }
+
         public static OrderNotificationDto ToDto(OrderNotification orderNotification)
         {
             OrderNotificationDto dto = new OrderNotificationDto();
             {
                 dto.Message = orderNotification.Message;
                 dto.Order = orderNotification.Order;
-                dto.User = orderNotification.User;
+                //dto.User = orderNotification.User;
                 return dto;
             }
         }

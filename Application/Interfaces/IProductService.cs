@@ -12,5 +12,8 @@ namespace Application.Interfaces
     {
         ProductDto GetProductById(int id);
         ProductDto CreateProduct(ProductCreateRequest product);
+        ICollection<ProductDto> GetAllProducts();
+        void UpdateProduct(int id, ProductCreateRequest productDto);
+        void DeleteProduct(int id);
     }
 }

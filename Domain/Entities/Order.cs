@@ -17,7 +17,7 @@ namespace Domain.Entities
 
         [Required]
         [Column(TypeName = "int(4.0)")]
-        public int AmountProducts { get; set; } = 0;// ver como hacer para que el amoute se calcule segun la cantidad de elementos que tenga product
+        public int AmountProducts { get; set; } = 0;
 
         [Required]
         public PaymentMethod PaymentMethod { get; set; }
@@ -26,12 +26,10 @@ namespace Domain.Entities
         public StatusOrder StatusOrder { get; set; } = StatusOrder.InProgress;
 
         [Required]
-        //public int CustomerId { get; set; }
-        public User Customer { get; set; } // Revisar si conviene usar el id o el objeto
+        public User Customer { get; set; }
 
         [Required]
-        //public int SellerId { get; set; }
-        public User Seller { get; set; } // Revisar si conviene usar el id o el objeto
+        public User Seller { get; set; }
 
         [Required]
         public IEnumerable<Product> ProductsInOrder { get; set; }

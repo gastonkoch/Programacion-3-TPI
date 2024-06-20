@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zgj70I2riCeRGOYMS62lXoz+d1j6F7iRAToIyCh0KYlaYdWVyvWDas15VXIb2dOenH/4UTPxl8EjU+hzOQ5FTA==",
+  "dgSpecHash": "kzjGgUhyt+4/ArR9RxgFJ3InRDt4mjkRqA900On5o+KjUo8MXsXRle4MfoilTOxDZNAh6BZ9kj0RwHGolEKl6g==",
   "success": true,
-  "projectFilePath": "C:\\SourceCode\\NEW TP PROG3\\Programacion-3-TPI\\Domain\\Domain.csproj",
+  "projectFilePath": "C:\\SourceCode\\TP PROG 3 OFFICIAAAAAAAAAAAAAAAAAL\\Programacion-3-TPI\\Domain\\Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\alerc\\.nuget\\packages\\servicestack.interfaces\\8.2.2\\servicestack.interfaces.8.2.2.nupkg.sha512"
   ],

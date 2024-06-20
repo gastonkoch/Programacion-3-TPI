@@ -41,11 +41,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\SourceCode\\NEW TP PROG3\\Programacion-3-TPI\\Domain\\Domain.csproj",
+      "projectUniqueName": "C:\\SourceCode\\TP PROG 3 OFFICIAAAAAAAAAAAAAAAAAL\\Programacion-3-TPI\\Domain\\Domain.csproj",
       "projectName": "Domain",
-      "projectPath": "C:\\SourceCode\\NEW TP PROG3\\Programacion-3-TPI\\Domain\\Domain.csproj",
+      "projectPath": "C:\\SourceCode\\TP PROG 3 OFFICIAAAAAAAAAAAAAAAAAL\\Programacion-3-TPI\\Domain\\Domain.csproj",
       "packagesPath": "C:\\Users\\alerc\\.nuget\\packages\\",
-      "outputPath": "C:\\SourceCode\\NEW TP PROG3\\Programacion-3-TPI\\Domain\\obj\\",
+      "outputPath": "C:\\SourceCode\\TP PROG 3 OFFICIAAAAAAAAAAAAAAAAAL\\Programacion-3-TPI\\Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\alerc\\AppData\\Roaming\\NuGet\\NuGet.Config",

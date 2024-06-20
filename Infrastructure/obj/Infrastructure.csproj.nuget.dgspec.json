@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\SourceCode\\NEW TP PROG3\\Programacion-3-TPI\\Infrastructure\\Infrastructure.csproj": {}
+    "C:\\SourceCode\\TP PROG 3 OFFICIAAAAAAAAAAAAAAAAAL\\Programacion-3-TPI\\Infrastructure\\Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\SourceCode\\NEW TP PROG3\\Programacion-3-TPI\\Application\\Application.csproj": {
+    "C:\\SourceCode\\TP PROG 3 OFFICIAAAAAAAAAAAAAAAAAL\\Programacion-3-TPI\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\SourceCode\\NEW TP PROG3\\Programacion-3-TPI\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\SourceCode\\TP PROG 3 OFFICIAAAAAAAAAAAAAAAAAL\\Programacion-3-TPI\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\SourceCode\\NEW TP PROG3\\Programacion-3-TPI\\Application\\Application.csproj",
+        "projectPath": "C:\\SourceCode\\TP PROG 3 OFFICIAAAAAAAAAAAAAAAAAL\\Programacion-3-TPI\\Application\\Application.csproj",
         "packagesPath": "C:\\Users\\alerc\\.nuget\\packages\\",
-        "outputPath": "C:\\SourceCode\\NEW TP PROG3\\Programacion-3-TPI\\Application\\obj\\",
+        "outputPath": "C:\\SourceCode\\TP PROG 3 OFFICIAAAAAAAAAAAAAAAAAL\\Programacion-3-TPI\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\alerc\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\SourceCode\\NEW TP PROG3\\Programacion-3-TPI\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\SourceCode\\NEW TP PROG3\\Programacion-3-TPI\\Domain\\Domain.csproj"
+              "C:\\SourceCode\\TP PROG 3 OFFICIAAAAAAAAAAAAAAAAAL\\Programacion-3-TPI\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\SourceCode\\TP PROG 3 OFFICIAAAAAAAAAAAAAAAAAL\\Programacion-3-TPI\\Domain\\Domain.csproj"
               }
             }
           }
@@ -68,14 +68,14 @@
         }
       }
     },
-    "C:\\SourceCode\\NEW TP PROG3\\Programacion-3-TPI\\Domain\\Domain.csproj": {
+    "C:\\SourceCode\\TP PROG 3 OFFICIAAAAAAAAAAAAAAAAAL\\Programacion-3-TPI\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\SourceCode\\NEW TP PROG3\\Programacion-3-TPI\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\SourceCode\\TP PROG 3 OFFICIAAAAAAAAAAAAAAAAAL\\Programacion-3-TPI\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\SourceCode\\NEW TP PROG3\\Programacion-3-TPI\\Domain\\Domain.csproj",
+        "projectPath": "C:\\SourceCode\\TP PROG 3 OFFICIAAAAAAAAAAAAAAAAAL\\Programacion-3-TPI\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\alerc\\.nuget\\packages\\",
-        "outputPath": "C:\\SourceCode\\NEW TP PROG3\\Programacion-3-TPI\\Domain\\obj\\",
+        "outputPath": "C:\\SourceCode\\TP PROG 3 OFFICIAAAAAAAAAAAAAAAAAL\\Programacion-3-TPI\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\alerc\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -134,14 +134,14 @@
         }
       }
     },
-    "C:\\SourceCode\\NEW TP PROG3\\Programacion-3-TPI\\Infrastructure\\Infrastructure.csproj": {
+    "C:\\SourceCode\\TP PROG 3 OFFICIAAAAAAAAAAAAAAAAAL\\Programacion-3-TPI\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\SourceCode\\NEW TP PROG3\\Programacion-3-TPI\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "C:\\SourceCode\\TP PROG 3 OFFICIAAAAAAAAAAAAAAAAAL\\Programacion-3-TPI\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "C:\\SourceCode\\NEW TP PROG3\\Programacion-3-TPI\\Infrastructure\\Infrastructure.csproj",
+        "projectPath": "C:\\SourceCode\\TP PROG 3 OFFICIAAAAAAAAAAAAAAAAAL\\Programacion-3-TPI\\Infrastructure\\Infrastructure.csproj",
         "packagesPath": "C:\\Users\\alerc\\.nuget\\packages\\",
-        "outputPath": "C:\\SourceCode\\NEW TP PROG3\\Programacion-3-TPI\\Infrastructure\\obj\\",
+        "outputPath": "C:\\SourceCode\\TP PROG 3 OFFICIAAAAAAAAAAAAAAAAAL\\Programacion-3-TPI\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\alerc\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -158,8 +158,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\SourceCode\\NEW TP PROG3\\Programacion-3-TPI\\Application\\Application.csproj": {
-                "projectPath": "C:\\SourceCode\\NEW TP PROG3\\Programacion-3-TPI\\Application\\Application.csproj"
+              "C:\\SourceCode\\TP PROG 3 OFFICIAAAAAAAAAAAAAAAAAL\\Programacion-3-TPI\\Application\\Application.csproj": {
+                "projectPath": "C:\\SourceCode\\TP PROG 3 OFFICIAAAAAAAAAAAAAAAAAL\\Programacion-3-TPI\\Application\\Application.csproj"
               }
             }
           }

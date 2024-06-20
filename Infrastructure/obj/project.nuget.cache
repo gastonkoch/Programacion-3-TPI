@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "10m7CQ8xoixt0U2pfWblemgh/S6y7uEXMlkdZujwHNNjb+FhFJqu+IKgzImPJoCEN97mgbROb7EWs6S2xqyshQ==",
+  "dgSpecHash": "bN2cptmLtb1bWMkP3FBjGHEugi1iY7oHcxhTV1GKTjK4Go6qChBcNG2s4N4NaKix1JaIt0Uswr9s8qIDFzhd3Q==",
   "success": true,
-  "projectFilePath": "C:\\SourceCode\\NEW TP PROG3\\Programacion-3-TPI\\Infrastructure\\Infrastructure.csproj",
+  "projectFilePath": "C:\\SourceCode\\TP PROG 3 OFFICIAAAAAAAAAAAAAAAAAL\\Programacion-3-TPI\\Infrastructure\\Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\alerc\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\alerc\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

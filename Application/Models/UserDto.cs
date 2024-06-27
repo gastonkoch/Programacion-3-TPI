@@ -17,6 +17,8 @@ namespace Application.Models
         [Required]
         public string Name { get; set; }
 
+        public string LastName { get; set; }
+
         [Required]
         public string Password { get; set; }
 
@@ -36,6 +38,7 @@ namespace Application.Models
             UserDto dto = new UserDto();
             dto.Id = User.Id;
             dto.Name = User.Name;
+            dto.LastName = User.LastName;
             dto.Password = User.Password;
             dto.Email = User.Email;
             dto.RegisterDate = User.RegisterDate;

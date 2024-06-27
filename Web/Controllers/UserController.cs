@@ -48,6 +48,7 @@ namespace Web.Controllers
         }
 
         [HttpPost]
+        [Authorize(Policy = "AdminPolicy")]
         public ActionResult<UserDto> CreateUser([FromBody] UserCreateRequest user)
         {
             try

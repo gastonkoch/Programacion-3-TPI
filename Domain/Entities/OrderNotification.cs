@@ -13,8 +13,9 @@ namespace Domain.Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+
         [Column(TypeName = "nvarchar(400)")]
         public string Message { get; set; }
-        public Order Order { get; set; }
+        //public Order Order { get; set; }
     }
 }

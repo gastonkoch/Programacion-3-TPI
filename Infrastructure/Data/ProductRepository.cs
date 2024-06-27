@@ -12,9 +12,5 @@ namespace Infrastructure.Data
     {
         public ProductRepository(ApplicationDbContext context) : base(context) { }
 
-        //public Product GetProductById(int id)
-        //{
-        //    return null;
-        //}
     }
 }

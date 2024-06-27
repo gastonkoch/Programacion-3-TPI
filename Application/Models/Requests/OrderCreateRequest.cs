@@ -11,34 +11,38 @@ namespace Application.Models.Requests
 {
     public class OrderCreateRequest
     {
-        [Required]
-        public int AmountProducts { get; set; }
+        //[Required]
+        //public int AmountProducts { get; set; }
 
         [Required]
         public PaymentMethod PaymentMethod { get; set; }
 
-        [Required]
-        public StatusOrder StatusOrder { get; set; }
+        //[Required]
+        //public StatusOrder StatusOrder { get; set; }
 
         [Required]
-        public User Customer { get; set; }
+        //public User Customer { get; set; }
+
+        public int CustomerId { get; set; }
 
         [Required]
-        public User Seller { get; set; }
+        //public User Seller { get; set; }
+
+        public int SellerId { get; set; }
 
         [Required]
-        public IEnumerable<Product> ProductsInOrder { get; set; }
+        public IEnumerable<int> ProductsInOrderId { get; set; }
 
-        public static Order ToEntity(OrderCreateRequest dto)
-        {
-            Order order = new Order();
-            order.AmountProducts = dto.AmountProducts;
-            order.PaymentMethod = dto.PaymentMethod;
-            order.StatusOrder = dto.StatusOrder;
-            order.Customer = dto.Customer; 
-            order.Seller = dto.Seller;
-            order.ProductsInOrder = dto.ProductsInOrder;
-            return order;
-        }
+        //public static Order ToEntity(OrderCreateRequest dto)
+        //{
+        //    Order order = new Order();
+        //    order.AmountProducts = dto.AmountProducts;
+        //    order.PaymentMethod = dto.PaymentMethod;
+        //    order.StatusOrder = dto.StatusOrder;
+        //    order.Customer = dto.Customer;
+        //    order.Seller = dto.Seller;
+        //    order.ProductsInOrder = dto.ProductsInOrder;
+        //    return order;
+        //}
     }
 }

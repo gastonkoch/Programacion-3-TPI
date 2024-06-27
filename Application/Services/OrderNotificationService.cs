@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Application.Services
 {
-    public class OrderNotificationService : IOrderNotificationService
+    public class OrderNotificationService //: IOrderNotificationService
     {
         private readonly IOrderNotificationRepository _orderNotificationService;
 
@@ -19,16 +19,16 @@ namespace Application.Services
             _orderNotificationService = orderNotificationService;
         }
 
-        public OrderNotificationDto GetOrderNotificationById(int id)
-        {
-            OrderNotificationDto orderNotificationDto = OrderNotificationDto.ToDto(_orderNotificationService.GetByIdAsync(id).Result ?? throw new Exception("No se encontro la notificacion"));
-            return orderNotificationDto;
-        }
+        //public OrderNotificationDto? GetOrderNotificationById(int id)
+        //{
+        //    //OrderNotificationDto orderNotificationDto = OrderNotificationDto.ToDto(_orderNotificationService.GetByIdAsync(id).Result ?? throw new Exception("No se encontro la notificacion"));
+        //    //return orderNotificationDto;
+        //}
 
-        public OrderNotificationDto CreateOrderNotification(OrderNotificationCreateRequest dto)
-        {
-            return OrderNotificationDto.ToDto(_orderNotificationService.AddAsync(OrderNotificationCreateRequest.ToEntity(dto)).Result);
+        //public OrderNotificationDto CreateOrderNotification(OrderNotificationCreateRequest dto)
+        //{
+        //    return OrderNotificationDto.ToDto(_orderNotificationService.AddAsync(OrderNotificationCreateRequest.ToEntity(dto)).Result);
 
-        }
     }
+
 }

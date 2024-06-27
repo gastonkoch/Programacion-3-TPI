@@ -8,13 +8,18 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Data
 {
+    //Constructor: El constructor de RepositoryBase toma un parámetro de tipo DbContext y lo utiliza para inicializar el campo _dbContext.
     public abstract class RepositoryBase<T> : IRepositoryBase<T> where T : class
     {
         private readonly DbContext _dbContext;
+
+        // Constructor de la clase base
         public RepositoryBase(DbContext dbContext)
         {
-            _dbContext = dbContext;
+            _dbContext = dbContext; // Inicializa el campo _dbContext con la instancia de DbContext pasada como parámetro
         }
+
+
         public virtual async Task<T?> GetByIdAsync<TId>(TId id, CancellationToken cancellationToken = default) where TId : notnull
         {
             return await _dbContext.Set<T>().FindAsync(new object[] { id }, cancellationToken: cancellationToken);

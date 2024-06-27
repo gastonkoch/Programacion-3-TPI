@@ -1,5 +1,6 @@
 ﻿using Domain.Enum;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -17,6 +18,10 @@ namespace Domain.Entities
         [Required]
         [Column(TypeName = "nvarchar(256)")]
         public string Name { get; set; }
+
+        [Required]
+        [Column(TypeName = "nvarchar(256)")]
+        public string LastName { get; set; }
 
         [Required]
         [Column(TypeName = "nvarchar(100)")]

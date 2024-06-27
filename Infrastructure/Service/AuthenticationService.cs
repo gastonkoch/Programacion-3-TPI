@@ -35,7 +35,7 @@ namespace Infrastructure.Service
 
             if (user == null) return null;
 
-            if (authenticationRequest.Email == user.Email || authenticationRequest.Password == user.Password) return user;
+            if (authenticationRequest.Email == user.Email || authenticationRequest.Password == user.Password) return user; // Estamos validando que sea quien dice ser 
 
             return null;
         }
@@ -51,7 +51,6 @@ namespace Infrastructure.Service
             }
 
 
-            //Hash del secreto
             var securityPassword = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(_options.SecretForKey)); // Obtenemos el salt
 
             var credentials = new SigningCredentials(securityPassword, SecurityAlgorithms.HmacSha256); // Hasheamos el salt
@@ -65,14 +64,19 @@ namespace Infrastructure.Service
             claimsForToken.Add(new Claim("role", user.UserType.ToString()));
 
             //Creamos el token
+            // El header se define automáticamente cuando creas el objeto JwtSecurityToken y le pasas las SigningCredentials.
+            // Aquí es donde se especifica el algoritmo de firma que se usará en el header del JWT.
+
             var jwtSecurityToken = new JwtSecurityToken( //Acá es donde se crea el token con toda la data que le pasamos antes.
              _options.Issuer,
              _options.Audience,
-             claimsForToken,
-             DateTime.UtcNow,
-             DateTime.UtcNow.AddHours(1), // La cantidad de horas que va a ser valido en este caso 1
-             credentials);
+             claimsForToken, // Payload
+             DateTime.UtcNow, // NotBefore
+             DateTime.UtcNow.AddHours(1),  // Expires // La cantidad de horas que va a ser valido en este caso 1
+             credentials); // Signing credentials (indica el algoritmo de firma y genera el header)
 
+
+            // Escribimos el token en un formato legible (JWT)
             var tokenToReturn = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken);
 
             var response = new AuthenticationResponse(tokenToReturn.ToString());

@@ -15,6 +15,9 @@ namespace Application.Models.Requests
         public string Name { get; set; }
 
         [StringLength(100)]
+        public string LastName { get; set; }
+
+        [StringLength(100)]
         public string Password { get; set; }
 
         [EmailAddress]
@@ -30,6 +33,7 @@ namespace Application.Models.Requests
             {
                 Id = dto.Id,
                 Name = dto.Name,
+                LastName = dto.LastName,
                 Password = dto.Password,
                 Email = dto.Email,
                 RegisterDate = dto.RegisterDate,

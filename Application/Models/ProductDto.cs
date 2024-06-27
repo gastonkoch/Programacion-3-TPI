@@ -24,11 +24,11 @@ namespace Application.Models
             dto.Price = product.Price;
             dto.Description = product.Description;
             dto.Stock = product.Stock;
-            dto.OrdersWithProducts = product.OrdersWithProducts;
+            //dto.OrdersWithProducts = product.OrdersWithProducts;
             return dto;
         }
 
-        public static List<ProductDto> ToList(ICollection<Product> products)
+        public static List<ProductDto> ToList(IEnumerable<Product> products)
         {
             List<ProductDto> listProductDto = new List<ProductDto>();
 

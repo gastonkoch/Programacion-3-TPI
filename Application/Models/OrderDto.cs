@@ -14,9 +14,10 @@ namespace Application.Models
         public int AmountProducts { get; set; }
         public PaymentMethod PaymentMethod { get; set; }
         public StatusOrder StatusOrder { get; set; }
-        public User Customer { get; set; }
-        public User Seller { get; set; }
-        public IEnumerable<Product> ProductsInOrder { get; set; }
+        public UserDto Customer { get; set; }
+        public UserDto Seller { get; set; }
+        public IEnumerable<ProductDto> ProductsInOrder { get; set; }
+
 
         public static OrderDto ToDto(Order order)
         {
@@ -24,10 +25,11 @@ namespace Application.Models
             //dto.Id = order.Id;
             dto.AmountProducts = order.AmountProducts;
             dto.PaymentMethod = order.PaymentMethod;
-            dto.StatusOrder = order.StatusOrder;
-            dto.Customer = order.Customer;
-            dto.Seller = order.Seller;
-            dto.ProductsInOrder = order.ProductsInOrder;
+            dto.StatusOrder = StatusOrder.InProgress;
+
+            dto.Customer = UserDto.ToDto(order.Customer);
+            dto.Seller = UserDto.ToDto(order.Seller);
+            dto.ProductsInOrder = ProductDto.ToList(order.ProductsInOrder);
             return dto;
         }
     }

@@ -24,7 +24,7 @@ namespace Application.Models.Requests
         [Required]
         public int Stock { get; set; }
 
-        //public IEnumerable<Order>? OrdersWithProducts { get; set; }
+        public IEnumerable<Order>? OrdersWithProducts { get; set; }
 
         public static Product ToEntity(ProductCreateRequest dto)
         {

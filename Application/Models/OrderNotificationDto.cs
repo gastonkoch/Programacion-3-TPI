@@ -14,18 +14,18 @@ namespace Application.Models
         //public int Id { get; set; }
         [Required]
         public string Message { get; set; }
-        [Required]
-        public Order Order { get; set; }
+        //[Required]
+        //public Order Order { get; set; }
 
-        //public IEnumerable<User>? User { get; set; }
+        ////public IEnumerable<User>? User { get; set; }
 
-        public static OrderNotificationDto ToDto(OrderNotification orderNotification)
+        public static OrderNotificationDto todto(OrderNotificationDto ordernotification)
         {
             OrderNotificationDto dto = new OrderNotificationDto();
             {
-                dto.Message = orderNotification.Message;
-                dto.Order = orderNotification.Order;
-                //dto.User = orderNotification.User;
+                dto.Message = ordernotification.Message;
+                //dto.order = ordernotification.order;
+                //dto.user = ordernotification.user;
                 return dto;
             }
         }

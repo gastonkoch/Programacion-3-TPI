@@ -34,9 +34,7 @@ namespace Domain.Entities
         public User Seller { get; set; }
 
 
-
         [Required]
-        public OrderProduct? ProductsInOrderId { get; set; }
         public IEnumerable<Product> ProductsInOrder { get; set; }
 
         public IEnumerable<OrderNotification>? OrderNotifications { get; set; }

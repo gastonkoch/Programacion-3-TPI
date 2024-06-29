@@ -3,6 +3,7 @@ using System;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240627022408_ale")]
+    partial class ale
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.6");
@@ -32,6 +35,12 @@ namespace Infrastructure.Migrations
                     b.Property<int>("PaymentMethod")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("ProductsInOrderId1")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("ProductsInOrderIdOrdersWithProductsId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("SellerId")
                         .HasColumnType("INTEGER");
 
@@ -43,6 +52,8 @@ namespace Infrastructure.Migrations
                     b.HasIndex("CustomerId");
 
                     b.HasIndex("SellerId");
+
+                    b.HasIndex("ProductsInOrderIdOrdersWithProductsId", "ProductsInOrderId1");
 
                     b.ToTable("Orders");
                 });
@@ -72,6 +83,19 @@ namespace Infrastructure.Migrations
                     b.ToTable("OrderNotifications");
                 });
 
+            modelBuilder.Entity("Domain.Entities.OrderProduct", b =>
+                {
+                    b.Property<int>("OrdersWithProductsId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("ProductsInOrderId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("OrdersWithProductsId", "ProductsInOrderId");
+
+                    b.ToTable("OrderProducts");
+                });
+
             modelBuilder.Entity("Domain.Entities.Product", b =>
                 {
                     b.Property<int>("Id")
@@ -86,6 +110,12 @@ namespace Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(256)");
 
+                    b.Property<int?>("OrdersWithProductsId1")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("OrdersWithProductsIdProductsInOrderId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<float>("Price")
                         .HasColumnType("decimal(18, 2)");
 
@@ -93,6 +123,8 @@ namespace Infrastructure.Migrations
                         .HasColumnType("int(4.0)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("OrdersWithProductsId1", "OrdersWithProductsIdProductsInOrderId");
 
                     b.ToTable("Products");
 
@@ -247,7 +279,15 @@ namespace Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
+                    b.HasOne("Domain.Entities.OrderProduct", "ProductsInOrderId")
+                        .WithMany()
+                        .HasForeignKey("ProductsInOrderIdOrdersWithProductsId", "ProductsInOrderId1")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
                     b.Navigation("Customer");
+
+                    b.Navigation("ProductsInOrderId");
 
                     b.Navigation("Seller");
                 });
@@ -263,6 +303,16 @@ namespace Infrastructure.Migrations
                         .WithMany("OrderNotifications")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.NoAction);
+                });
+
+            modelBuilder.Entity("Domain.Entities.Product", b =>
+                {
+                    b.HasOne("Domain.Entities.OrderProduct", "OrdersWithProductsId")
+                        .WithMany()
+                        .HasForeignKey("OrdersWithProductsId1", "OrdersWithProductsIdProductsInOrderId")
+                        .OnDelete(DeleteBehavior.NoAction);
+
+                    b.Navigation("OrdersWithProductsId");
                 });
 
             modelBuilder.Entity("OrderProduct", b =>

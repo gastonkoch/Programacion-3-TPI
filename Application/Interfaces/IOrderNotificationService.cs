@@ -10,7 +10,7 @@ namespace Application.Interfaces
 {
     public interface IOrderNotificationService
     {
-        OrderNotificationDto GetOrderNotificationById (int id);
+        OrderNotificationDto GetOrderNotificationById(int id);
         OrderNotificationDto CreateOrderNotification(OrderNotificationCreateRequest dto);
     }
 }

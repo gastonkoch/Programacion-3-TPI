@@ -24,7 +24,7 @@ namespace Application.Models
             dto.Price = product.Price;
             dto.Description = product.Description;
             dto.Stock = product.Stock;
-            //dto.OrdersWithProducts = product.OrdersWithProducts;
+            dto.OrdersWithProducts = product.OrdersWithProducts;
             return dto;
         }
 

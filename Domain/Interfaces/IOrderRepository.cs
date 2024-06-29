@@ -9,5 +9,8 @@ namespace Domain.Interfaces
 {
     public interface IOrderRepository : IRepositoryBase<Order>
     {
+        Task<Order?> GetByIdAsync(int id, CancellationToken cancellationToken = default);
+        //Task<List<Order>> ProductInOrder(int id, CancellationToken cancellationToken = default);
+
     }
 }

@@ -14,7 +14,6 @@ namespace Ecommerce.Web.Controllers
         private readonly IConfiguration _config;
         private readonly IAuthenticationService _customAuthenticationService;
 
-
         public AuthenticationController(IConfiguration config, IAuthenticationService autenticacionService)
         {
             _config = config; //Hacemos la inyección para poder usar el appsettings.json

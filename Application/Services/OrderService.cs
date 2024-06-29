@@ -8,7 +8,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace Application.Services
@@ -35,6 +34,7 @@ namespace Application.Services
             var seller = _userRepository.GetByIdAsync(order.SellerId).Result ?? throw new Exception("No se encontro el usuario");
             order.Customer = customer;
             order.Seller = seller;
+            //var products = _orderRepkository.ProductInOrder(id).Result ?? throw new Exception("No se encontro la orden");
             OrderDto orderDto = OrderDto.ToDto(order);
             return orderDto;
         }

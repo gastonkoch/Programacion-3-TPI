@@ -17,7 +17,6 @@ namespace Infrastructure.Data
         public DbSet<Order> Orders { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<OrderNotification> OrderNotifications { get; set; }
-        public DbSet<OrderProduct> OrderProducts { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
@@ -28,8 +27,7 @@ namespace Infrastructure.Data
             .Property(e => e.UserType)
             .HasConversion<int>();
 
-            modelBuilder.Entity<OrderProduct>()
-                .HasKey(op => new { op.OrdersWithProductsId, op.ProductsInOrderId });
+
 
 
             modelBuilder.Entity<User>().HasData(CreateCustomerSellerDataSeed());

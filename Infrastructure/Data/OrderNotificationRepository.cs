@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Data
 {
-    public class OrderNotificationRepository : EfRepository<OrderNotification> , IOrderNotificationRepository
+    public class OrderNotificationRepository : EfRepository<OrderNotification>, IOrderNotificationRepository
     {
         public OrderNotificationRepository(ApplicationDbContext context) : base(context) { }
     }

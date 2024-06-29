@@ -21,6 +21,13 @@ namespace Infrastructure.Data
                                  .FirstOrDefaultAsync(o => o.Id == id, cancellationToken);
         }
 
+        //public async Task<List<Order>> ProductInOrder(int id, CancellationToken cancellationToken = default)
+        //{
+        //    return await _applicationDbContext.Orders
+        //        .Include(o => o.ProductsInOrder)
+        //        .Where(o => o.Id == id)
+        //        .ToListAsync(cancellationToken);
+        //}
 
     }
 }
